@@ -1,22 +1,7 @@
 <template>
   <h1 i18n="title"></h1>
   <language-selector></language-selector>
-
-  <div class="pager">
-    <div class="pager--labels">
-      <li repeat.for="step of pager.steps"
-        class="
-          ${step.active ? 'active': step.active === false ? 'inactive' : ''}
-          ${step.enabled ? 'enabled': ''}
-        ">
-        <img src.bind="step.arrowImg" if.bind="$index!==0" />
-        <div class="label" click.trigger="navTo(step)">
-          ${step.label}
-          <div class="indicator"></div>
-        </div>
-      </li>
-    </div>
-  </div>
+  <page-index></page-index>
 
   <div id="content" style="position: relative;height: 5000px;">
 
