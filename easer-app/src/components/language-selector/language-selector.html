@@ -1,0 +1,9 @@
+<template>
+  <ul>
+    <li repeat.for="locale of locales"
+    css="text-decoration: ${locale.code === currentLocale ? 'underline' : 'none'}"
+    click.trigger="setLocale(locale)">
+      ${locale.title}
+    </li>
+  </ul>
+</template>

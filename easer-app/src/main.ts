@@ -29,7 +29,7 @@ export function configure(aurelia: Aurelia): void {
         }
       })
     })
-    .feature(PLATFORM.moduleName('resources/index'));
+    .feature(PLATFORM.moduleName('components/index'));
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
 
