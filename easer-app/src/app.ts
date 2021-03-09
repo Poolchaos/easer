@@ -47,7 +47,7 @@ export class App {
   }
 
   private handleIntersect(entry, step: number): void {
-    if (!this.ignoreScroll || entry.isIntersecting)
+    if (!this.ignoreScroll && entry.isIntersecting)
     this.navTo(this.pager.steps[step]);
   }
 
