@@ -12,7 +12,8 @@
   // Dark Theme
   --dark--primary-text: #ffffff;
   --dark--secondary-text: #a81322;
-  --dark--primary: #080a1a;
+  --dark--primary: #1a1a1a;
+  --dark--primary-stripe: #0d0d0d;
   --dark--secondary: #3d3d3d;
   // Light Theme
   --light--primary-text: #3f3f40;
@@ -32,7 +33,9 @@
     background-color: var(--dark--primary-text);
   }
   &--dark {
-    background-color: var(--dark--primary);
+    // background-color: var(--dark--primary);
+    background-image: linear-gradient(112deg, var(--dark--primary) 2.38%, var(--dark--primary-stripe) 2.38%, var(--dark--primary-stripe) 50%, var(--dark--primary) 50%, var(--dark--primary) 52.38%, var(--dark--primary-stripe) 52.38%, var(--dark--primary-stripe) 100%);
+    background-size: 55.01px 136.14px;
     color: var(--dark--primary-text);
     a {
       color: var(--dark--primary-text);

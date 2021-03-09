@@ -1,5 +1,3 @@
-
-
 import 'includes';
 import 'app.scss';
 
@@ -30,13 +28,38 @@ export class App {
   public pager = new Pager();
   public hasHover: boolean;
 
-  public enable(): void {
-    console.log(' ::>> enable ');
-    this.hasHover = true;
+  private timeout = null;
+  private ignoreScroll: boolean = false;
+
+  public attached(): void {
+
+    let easerObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 0));
+    easerObserver.observe(document.querySelector('#Easer'));
+    
+    let appObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 1));
+    appObserver.observe(document.querySelector('#Applications'));
+    
+    let compObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 2));
+    compObserver.observe(document.querySelector('#Components'));
+    
+    let contactObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 3));
+    contactObserver.observe(document.querySelector('#Contact'));
   }
 
-  public disable(): void {
-    console.log(' ::>> disable ');
-    this.hasHover = false;
+  private handleIntersect(entry, step: number): void {
+    if (!this.ignoreScroll || entry.isIntersecting)
+    this.navTo(this.pager.steps[step]);
+  }
+
+  public navTo(step: any, time?: number): void {
+    this.ignoreScroll = true;
+    this.pager.go(step);
+
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+    }
+    this.timeout = setTimeout(() => {
+      this.ignoreScroll = false;
+    }, time || 1000)
   }
 }
