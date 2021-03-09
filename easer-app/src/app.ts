@@ -48,7 +48,7 @@ export class App {
 
   private handleIntersect(entry, step: number): void {
     if (!this.ignoreScroll && entry.isIntersecting)
-    this.navTo(this.pager.steps[step]);
+    this.navTo(this.pager.steps[step], 50);
   }
 
   public navTo(step: any, time?: number): void {
