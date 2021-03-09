@@ -1,0 +1,81 @@
+@import './_common/styles/animations.scss';
+
+.pager {
+  z-index: 100;
+  position: fixed;
+  right: 100px;
+  min-height: 185px;
+  max-height: 400px;
+  padding: 10px 0;
+
+  &--labels {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+
+    img {
+      height: 0;
+      opacity: 0;
+      margin: 10px;
+    }
+    
+    .label {
+      position: relative;
+      cursor: pointer;
+      padding: 0 10px 10px 10px;
+    }
+    
+    li.enabled {
+      .label {
+        border-bottom: 1px solid white;
+        padding-left: 9px;
+        width: 100%;
+        
+        .indicator {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 10px;
+          height: 10px;
+          background: #ffffff;
+          
+          -webkit-transform:rotate(45deg);
+          -moz-transform:rotate(45deg);
+          -ms-transform:rotate(45deg);
+          -o-transform:rotate(45deg);
+          transform:rotate(45deg);
+
+          -webkit-transform-origin: left bottom;
+          -moz-transform-origin: left bottom;
+          -ms-transform-origin: left bottom;
+          -o-transform-origin: left bottom;
+          transform-origin: left bottom;
+        }
+      }
+    }
+    li.active {
+      img {
+        animation: grow ease 0.5s;
+        -webkit-animation: grow ease 0.5s;
+        -moz-animation: grow ease 0.5s;
+        -o-animation: grow ease 0.5s;
+        -ms-animation: grow ease 0.5s;
+
+        height: 70px;
+        opacity: 1!important;
+      }
+    }
+    li.inactive {
+      img {
+        animation: shrink ease 0.5s;
+        -webkit-animation: shrink ease 0.5s;
+        -moz-animation: shrink ease 0.5s;
+        -o-animation: shrink ease 0.5s;
+        -ms-animation: shrink ease 0.5s;
+
+        height: 0;
+        opacity: 0!important;
+      }
+    }
+  }
+}

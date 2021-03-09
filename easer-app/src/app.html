@@ -1,5 +1,38 @@
 <template>
   <h1 i18n="title"></h1>
-
   <language-selector></language-selector>
+
+  <div class="pager"
+    mouseenter.trigger="enable()"
+    mouseleave.trigger="disable()">
+    <div class="pager--labels">
+      <li repeat.for="step of pager.steps"
+        class="
+          ${step.active ? 'active': step.active === false ? 'inactive' : ''}
+          ${step.enabled ? 'enabled': ''}
+        ">
+        <img src.bind="step.arrowImg" if.bind="$index!==0" />
+        <div class="label" click.trigger="pager.go(step)">
+          ${step.label}
+          <div class="indicator"></div>
+        </div>
+      </li>
+    </div>
+  </div>
+
+  <div style="position: relative;height: 5000px;">
+
+    <div id="Easer" style="height: 300px;">
+      <h5>Easer</h5>
+    </div>
+    <div id="Applications" style="position: absolute; top: 1000px;height: 300px;">
+      <h5>Applications</h5>
+    </div>
+    <div id="Components" style="position: absolute; top: 2000px;height: 300px;">
+      <h5>Components</h5>
+    </div>
+    <div id="Contact" style="position: absolute; top: 3000px;height: 300px;">
+      <h5>Contact</h5>
+    </div>
+  </div>
 </template>

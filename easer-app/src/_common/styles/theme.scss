@@ -4,11 +4,16 @@
 
 :root {
   /*  ---- colors ----  */
-  // Dark Theme
+  // Default Theme
   --dark--primary-text: #3f3f40;
   --dark--secondary-text: #848487;
   --dark--primary: #13a89e;
   --dark--secondary: #a81322;
+  // Dark Theme
+  --dark--primary-text: #ffffff;
+  --dark--secondary-text: #a81322;
+  --dark--primary: #080a1a;
+  --dark--secondary: #3d3d3d;
   // Light Theme
   --light--primary-text: #3f3f40;
   --light--secondary-text: #848487;
@@ -25,6 +30,13 @@
 .theme {
   &--default {
     background-color: var(--dark--primary-text);
+  }
+  &--dark {
+    background-color: var(--dark--primary);
+    color: var(--dark--primary-text);
+    a {
+      color: var(--dark--primary-text);
+    }
   }
   &--light {
     background-color: var(--light--primary);
