@@ -9,6 +9,11 @@
   --dark--secondary-text: #848487;
   --dark--primary: #13a89e;
   --dark--secondary: #a81322;
+  // Light Theme
+  --light--primary-text: #3f3f40;
+  --light--secondary-text: #848487;
+  --light--primary: #deddce;
+  --light--secondary: #a81322;
 
   /* ---- font sizes ---- */
   --tiny: 14px;
@@ -20,6 +25,9 @@
 .theme {
   &--default {
     background-color: var(--dark--primary-text);
+  }
+  &--light {
+    background-color: var(--light--primary);
   }
 }
 
