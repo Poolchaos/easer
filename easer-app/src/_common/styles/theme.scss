@@ -1,0 +1,81 @@
+/*------------------------------------*\
+  #THEME SETTINGS
+\*------------------------------------*/
+
+:root {
+  /*  ---- colors ----  */
+  // Dark Theme
+  --dark--primary-text: #3f3f40;
+  --dark--secondary-text: #848487;
+  --dark--primary: #13a89e;
+  --dark--secondary: #a81322;
+
+  /* ---- font sizes ---- */
+  --tiny: 14px;
+  --small: 16px;
+  --medium: 20px;
+  --large: 28px;
+}
+
+.theme {
+  &--default {
+    background-color: var(--dark--primary-text);
+  }
+}
+
+/*------------------------------------*\
+  #THEME COLOUR CLASSES
+\*------------------------------------*/
+
+.black-text {
+  color: black!important;
+}
+
+.primary-text-text {
+  color: var(--primary-text)!important;
+}
+
+.primary-text {
+  color: var(--primary);
+}
+
+.secondary-text {
+  color: var(--secondary);
+}
+
+/*------------------------------------*\
+  #THEME FONTS
+\*------------------------------------*/
+
+// @font-face {
+//   font-family: 'Calibri Light';
+//   font-style: normal;
+//   font-weight: normal;
+//   src: local('Calibri Light'), url('../fonts/calibril.woff') format('woff');
+// }
+
+html, body, div, a, button, li {
+  font-family: 'Arial', 'Roboto'!important;
+  // font-family: 'Calibri light', 'Roboto'!important;
+}
+
+/*------------------------------------*\
+  #THEME FONT CLASSES
+\*------------------------------------*/
+
+
+.tiny-font {
+  font-size: var(--tiny);
+}
+
+.small-font {
+  font-size: var(--small);
+}
+
+.medium-font {
+  font-size: var(--medium);
+}
+
+.large-font {
+  font-size: var(--large);
+}
