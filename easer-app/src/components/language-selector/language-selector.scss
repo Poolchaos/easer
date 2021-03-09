@@ -1,0 +1,30 @@
+.locale {
+  position: relative;
+  cursor: pointer;
+
+  .label {
+    padding: 10px;
+  }
+
+  &--wrapper {
+    position: absolute;
+    top: 100%;
+    z-index: 100;
+    background: var(--dark--secondary);
+
+    li {
+      padding: 10px;
+
+      &.active {
+        background: var(--light--primary);
+        color: var(--light--primary-text);
+        border-left: 4px solid var(--default--secondary);
+      }
+
+      &:hover {
+        background: var(--light--secondary);
+        color: var(--light--primary);
+      }
+    }
+  }
+}

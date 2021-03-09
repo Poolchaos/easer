@@ -5,10 +5,10 @@
 :root {
   /*  ---- colors ----  */
   // Default Theme
-  --dark--primary-text: #3f3f40;
-  --dark--secondary-text: #848487;
-  --dark--primary: #13a89e;
-  --dark--secondary: #a81322;
+  --default--primary-text: #3f3f40;
+  --default--secondary-text: #848487;
+  --default--primary: #13a89e;
+  --default--secondary: #a81322;
   // Dark Theme
   --dark--primary-text: #ffffff;
   --dark--secondary-text: #a81322;
@@ -19,7 +19,7 @@
   --light--primary-text: #3f3f40;
   --light--secondary-text: #848487;
   --light--primary: #deddce;
-  --light--secondary: #a81322;
+  --light--secondary: #848487;
 
   /* ---- font sizes ---- */
   --tiny: 14px;
