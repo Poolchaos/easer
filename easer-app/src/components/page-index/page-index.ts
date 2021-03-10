@@ -38,34 +38,39 @@ export class PageIndex {
 
   public attached(): void {
 
-    let easerObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 0));
+    let easerObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 0));
     easerObserver.observe(document.querySelector('#Easer'));
     
-    let appObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 1));
+    let appObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 1));
     appObserver.observe(document.querySelector('#Projects'));
     
-    let compObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 2));
+    let compObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 2));
     compObserver.observe(document.querySelector('#Components'));
     
-    let contactObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 3));
+    let contactObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 3));
     contactObserver.observe(document.querySelector('#Contact'));
   }
 
-  private handleIntersect(entry, step: number): void {
-    if (!this.ignoreScroll && entry.isIntersecting)
-    this.navTo(this.pager.steps[step], 50);
+  private handleIntersect(entries, step: number): void {
+    const entry = entries[0];
+    if (!this.ignoreScroll && entry.isIntersecting) {
+      this.navTo(this.pager.steps[step], true);
+    }
   }
 
-  public navTo(step: any, time?: number): void {
-    this.ignoreScroll = true;
+  public navTo(step: any, ignoreTimeout?: boolean): void {
+
+    if (!ignoreTimeout) {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+      }
+      this.ignoreScroll = true;
+      this.timeout = setTimeout(() => {
+        this.ignoreScroll = false;
+      }, 1000);
+    }
+    
     this.pager.go(step);
     this.active = step.label;
-
-    if (this.timeout) {
-      clearTimeout(this.timeout);
-    }
-    this.timeout = setTimeout(() => {
-      this.ignoreScroll = false;
-    }, time || 1000)
   }
 }
