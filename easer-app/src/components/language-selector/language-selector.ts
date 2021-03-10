@@ -1,8 +1,9 @@
-import { autoinject, customElement } from 'aurelia-framework';
+import { autoinject, customElement, containerless } from 'aurelia-framework';
 import { I18N } from 'aurelia-i18n';
 
 import './language-selector.scss';
 
+@containerless()
 @autoinject()
 @customElement('language-selector')
 export class LanguageSelector {

@@ -1,6 +1,8 @@
 .locale {
   position: relative;
+  display: inline-block;
   cursor: pointer;
+  align-self: center;
 
   .label {
     padding: 10px;

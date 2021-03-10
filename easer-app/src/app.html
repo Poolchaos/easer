@@ -3,6 +3,7 @@
 
   <div class="page">
     <div class="page--header">
+      <img src.bind="'ampler 1800x1800.png'" style="width: 50px;" />
       <language-selector></language-selector>
     </div>
 
@@ -34,31 +35,11 @@
       </div>
 
       <div style="align-self: bottom;" class="skills">
-        <img src.bind="'aurelia.png'" alt="Aurelia" />
-        <img src.bind="'aws.png'" alt="AWS" />
-        <img src.bind="'css3.webp'" alt="CSS3" />
-        <img src.bind="'docker.png'" alt="Docker" />
-        <img src.bind="'electron.png'" alt="Electron" />
-        <img src.bind="'expressjs.svg'" alt="ExpressJS" />
-        <img src.bind="'git.png'" alt="Git" />
-        <img src.bind="'gulp.png'" alt="Gulp" />
-        <img src.bind="'html5.png'" alt="HTML5" />
-        <img src.bind="'javascript.png'" alt="JavaScript" />
-        <img src.bind="'jenkins.jpg'" alt="Jenkins" />
-        <img src.bind="'jwt.png'" alt="JSON Web Tokens" />
-        <img src.bind="'kubernetes.png'" alt="Kubernetes" />
-        <img src.bind="'mongodb.png'" alt="Mongo DB" />
-        <img src.bind="'nodejs.png'" alt="NodeJS" />
-        <img src.bind="'rabbitmq.png'" alt="RabbitMQ" />
-        <img src.bind="'react.png'" alt="React" />
-        <img src.bind="'redux.png'" alt="Redux" />
-        <img src.bind="'rxjs.png'" alt="RxJS" />
-        <img src.bind="'sip.webp'" alt="Sip" />
-        <img src.bind="'typescript.png'" alt="TypeScript" />
-        <img src.bind="'vue-js.png'" alt="VueJS" />
-        <img src.bind="'webpack.png'" alt="Webpack" />
-        <img src.bind="'webrtc.png'" alt="Webrtc" />
-        <img src.bind="'wordpress.png'" alt="Wordpress" />
+        <img 
+          repeat.for="skill of skillList"
+          src.bind="skill.img"
+          alt.bind="skill.label"
+          title.bind="skill.label" />
       </div>
     </div>
     <div class="page--footer">
