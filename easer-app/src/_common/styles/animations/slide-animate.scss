@@ -1,0 +1,48 @@
+//////////////////////////
+// slide to right
+//////////////////////////
+
+@keyframes slide-right {
+  0% {
+    left: calc(255px - 100%);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@-moz-keyframes slide-right {
+  0% {
+    left: calc(255px - 100%);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@-webkit-keyframes slide-right {
+  0% {
+    left: calc(255px - 100%);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@-o-keyframes slide-right {
+  0% {
+    left: calc(255px - 100%);
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@-ms-keyframes slide-right {
+  0% {
+    left: calc(255px - 100%);
+  }
+  100% {
+    left: 0;
+  }
+}

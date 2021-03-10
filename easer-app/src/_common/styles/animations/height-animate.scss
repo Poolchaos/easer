@@ -1,0 +1,95 @@
+//////////////////////////
+// increase height
+//////////////////////////
+@keyframes grow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70px;
+  }
+}
+
+@-moz-keyframes grow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70px;
+  }
+}
+
+@-webkit-keyframes grow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70px;
+  }
+}
+
+@-o-keyframes grow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70px;
+  }
+}
+
+@-ms-keyframes grow {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 70px;
+  }
+}
+
+//////////////////////////
+// decrease height
+//////////////////////////
+@keyframes shrink {
+  0% {
+    height: 70px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@-moz-keyframes shrink {
+  0% {
+    height: 70px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@-webkit-keyframes shrink {
+  0% {
+    height: 70px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@-o-keyframes shrink {
+  0% {
+    height: 70px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+@-ms-keyframes shrink {
+  0% {
+    height: 70px;
+  }
+  100% {
+    height: 0;
+  }
+}

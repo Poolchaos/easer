@@ -1,20 +1,44 @@
 <template>
-  <language-selector></language-selector>
-  <page-index></page-index>
+  <page-index active.two-way="active"></page-index>
 
-  <div id="content" style="position: relative;height: 5000px;">
+  <div class="page">
+    <div class="page--header">
+      <language-selector></language-selector>
+    </div>
 
-    <div id="Easer" style="height: 300px;">
-      <h1 i18n="title"></h1>
+    <div class="page--header" id="content" style="position: relative;height: 5000px;">
+
+      <div id="Easer"
+        class="content--step ${active === 'Easer' ? 'slide-in': 'slide-out'}"
+        style="top: 0;height: 300px;">
+        <div class="content--step-inner ${active === 'Easer' ? 'slide-in': 'slide-out'}">
+          <h1 i18n="title"></h1>
+        </div>
+      </div>
+      <div id="Projects"
+        class="content--step ${active === 'Projects' ? 'slide-in': 'slide-out'}"
+        style="position: absolute; top: 1000px;height: 300px;">
+        <div class="content--step-inner ${active === 'Projects' ? 'slide-in': 'slide-out'}">
+          <h1>Projects</h1>
+        </div>
+      </div>
+      <div id="Components"
+        class="content--step ${active === 'Components' ? 'slide-in': 'slide-out'}"
+        style="position: absolute; top: 2000px;height: 300px;">
+        <div class="content--step-inner ${active === 'Components' ? 'slide-in': 'slide-out'}">
+          <h1>Components</h1>
+        </div>
+      </div>
+      <div id="Contact"
+        class="content--step ${active === 'Contact' ? 'slide-in': 'slide-out'}"
+        style="position: absolute; top: 3000px;height: 300px;">
+        <div class="content--step-inner ${active === 'Contact' ? 'slide-in': 'slide-out'}">
+          <h1>Contact</h1>
+        </div>
+      </div>
     </div>
-    <div id="Applications" style="position: absolute; top: 1000px;height: 300px;">
-      <h5>Applications</h5>
-    </div>
-    <div id="Components" style="position: absolute; top: 2000px;height: 300px;">
-      <h5>Components</h5>
-    </div>
-    <div id="Contact" style="position: absolute; top: 3000px;height: 300px;">
-      <h5>Contact</h5>
+    <div class="page--footer">
+      Footer
     </div>
   </div>
 </template>

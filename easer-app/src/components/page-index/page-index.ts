@@ -1,11 +1,15 @@
-import { customElement } from 'aurelia-framework';
+import { customElement, bindable } from 'aurelia-framework';
+import {bindingMode} from 'aurelia-binding';
 
-class Pager {
+import './page-index.scss';
+
+class Pager {;
+
   public steps = [
     { label: 'Easer', active: null, enabled: true, activeSteps: ['Easer'] },
-    { label: 'Applications', active: null, enabled: false, arrowImg: 'curly-dotted-arrow.png', activeSteps: ['Easer', 'Applications'] },
-    { label: 'Components', active: null, enabled: false, arrowImg: 'curved-arrow-with-broken-line.png', activeSteps: ['Easer', 'Applications', 'Components'] },
-    { label: 'Contact', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Easer', 'Applications', 'Components', 'Contact'] }
+    { label: 'Projects', active: null, enabled: false, arrowImg: 'curly-dotted-arrow.png', activeSteps: ['Easer', 'Projects'] },
+    { label: 'Components', active: null, enabled: false, arrowImg: 'curved-arrow-with-broken-line.png', activeSteps: ['Easer', 'Projects', 'Components'] },
+    { label: 'Contact', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Easer', 'Projects', 'Components', 'Contact'] }
   ];
 
   public go(action: { label: string, activeSteps: string[] }): void {
@@ -17,7 +21,6 @@ class Pager {
       }
       step.enabled = action.label === step.label;
     });
-    
     let element = document.querySelector(`#${action.label}`);
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
@@ -25,6 +28,8 @@ class Pager {
 
 @customElement('page-index')
 export class PageIndex {
+
+  @bindable public active = 'Easer'
 
   public pager = new Pager();
 
@@ -37,7 +42,7 @@ export class PageIndex {
     easerObserver.observe(document.querySelector('#Easer'));
     
     let appObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 1));
-    appObserver.observe(document.querySelector('#Applications'));
+    appObserver.observe(document.querySelector('#Projects'));
     
     let compObserver = new IntersectionObserver((entries) => this.handleIntersect(entries[0], 2));
     compObserver.observe(document.querySelector('#Components'));
@@ -54,6 +59,7 @@ export class PageIndex {
   public navTo(step: any, time?: number): void {
     this.ignoreScroll = true;
     this.pager.go(step);
+    this.active = step.label;
 
     if (this.timeout) {
       clearTimeout(this.timeout);
