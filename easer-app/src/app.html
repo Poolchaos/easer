@@ -1,19 +1,20 @@
 <template>
   <page-index active.two-way="active"></page-index>
+  <img src.bind="'puzzle-piece-1.png'" style="position: fixed;top: 100px;left: 50px;width:400px; opacity: 0.1;z-index: -1;" />
+  <img src.bind="'puzzle-piece-2.png'" style="position: fixed;bottom: 50px;right: 50px;width:400px; opacity: 0.1;z-index: -1;" />
 
   <div class="page">
     <div class="page--header">
       <img src.bind="'ampler 1800x1800.png'" style="width: 50px;" />
       <language-selector></language-selector>
+      <notifications></notifications>
     </div>
 
     <div class="page--content" id="content">
 
       <div id="Easer"
         class="page--content-step ${active === 'Easer' ? 'slide-in': 'slide-out'}">
-        <div class="page--content-step-inner ${active === 'Easer' ? 'slide-in': 'slide-out'}">
-          <h1 i18n="title"></h1>
-        </div>
+        <h1 i18n="title"></h1>
       </div>
       <div id="Projects"
         class="page--content-step ${active === 'Projects' ? 'slide-in': 'slide-out'}">

@@ -1,0 +1,11 @@
+<template>
+  <div class="notifications">
+    <div
+      class="item"
+      repeat.for="item of notifications"
+      if.bind="item.enabled">
+      <span innerhtml.bind="item.message"></span>
+      <button class="close" click.trigger="close(item)">x</button>
+    </div>
+  </div>
+</template>

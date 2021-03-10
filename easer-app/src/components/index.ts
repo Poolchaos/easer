@@ -5,5 +5,6 @@ export function configure(config: FrameworkConfiguration): void {
   config.globalResources([
     PLATFORM.moduleName('./language-selector/language-selector'),
     PLATFORM.moduleName('./page-index/page-index'),
+    PLATFORM.moduleName('./notifications/notifications'),
   ]);
 }
