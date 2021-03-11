@@ -8,6 +8,7 @@ import Backend from 'i18next-xhr-backend';
 export function configure(aurelia: Aurelia): void {
   aurelia.use
     .standardConfiguration()
+    .plugin(PLATFORM.moduleName('aurelia-validation'))
     .plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
 
       let aliases = ['t', 'i18n'];

@@ -1,42 +1,92 @@
 import 'includes';
 import 'app.scss';
 
-import { autoinject } from 'aurelia-framework';
+import { autoinject, observable } from 'aurelia-framework';
+import {
+  ValidationControllerFactory,
+  ValidationController,
+  ValidationRules,
+  validateTrigger,
+  ValidateResult
+} from 'aurelia-validation';
 
-import { AppService } from 'app-service';
+import { AppService } from './app-service';
+import { SKILLS } from '_common/constants/skills';
 
 @autoinject()
 export class App {
-  public skillList: any[] = [
-    { img: 'aurelia.png', label: 'Aurelia' },
-    { img: 'angular.webp', label: 'Angular' },
-    { img: 'aws.png', label: 'AWS' },
-    { img: 'css3.webp', label: 'CSS3' },
-    { img: 'docker.png', label: 'Docker' },
-    { img: 'electron.png', label: 'Electron' },
-    { img: 'expressjs.svg', label: 'ExpressJS' },
-    { img: 'git.png', label: 'Git' },
-    { img: 'gulp.png', label: 'Gulp' },
-    { img: 'html5.png', label: 'HTML5' },
-    { img: 'javascript.png', label: 'JavaScript' },
-    { img: 'jenkins.jpg', label: 'Jenkins' },
-    { img: 'jwt.png', label: 'JSON Web Tokens' },
-    { img: 'kubernetes.png', label: 'Kubernetes' },
-    { img: 'mongodb.png', label: 'Mongo DB' },
-    { img: 'nodejs.png', label: 'NodeJS' },
-    { img: 'rabbitmq.png', label: 'RabbitMQ' },
-    { img: 'react.png', label: 'React' },
-    { img: 'redux.png', label: 'Redux' },
-    { img: 'rxjs.png', label: 'RxJS' },
-    { img: 'typescript.png', label: 'TypeScript' },
-    { img: 'vue-js.png', label: 'VueJS' },
-    { img: 'webpack.png', label: 'Webpack' },
-    { img: 'webrtc.png', label: 'Webrtc' },
-    { img: 'wordpress.png', label: 'Wordpress' }
-  ];
-  public contact = { name: '', phone: '', email: '', message: '' };
+  public skillList: any[] = SKILLS;
 
-  constructor(private appService: AppService) {}
+  @observable public name: '';
+  @observable public phone: '';
+  @observable public email: '';
+  @observable public message: '';
+  public validation: ValidationController;
+  public submitted: boolean = false;
+  public errors = { name: null, phone: null, email: null, message: null };
+
+  constructor(
+    private appService: AppService,
+    validationControllerFactory: ValidationControllerFactory
+  ) {
+    this.validation = validationControllerFactory.createForCurrentScope();
+    this.validation.validateTrigger = validateTrigger.changeOrBlur;
+  }
+
+  public activate(): void {
+    this.setupValidations();
+  }
+
+  private setupValidations(): void {
+    ValidationRules
+      .ensure('name')
+      .required()
+      .withMessage('Please enter your name.')
+      .ensure('phone')
+      .required()
+      .withMessage('Please enter your contact number.')
+      .ensure('email')
+      .required()
+      .withMessage('Please enter your email.')
+      .then()
+      .email()
+      .withMessage('Please enter a valid email.')
+      .ensure('message')
+      .required()
+      .withMessage('Please enter your message.')
+      .on(this);
+  }
+
+  public clearError(errorName: string): void {
+    this.errors[errorName] = null;
+  }
+
+  private resetErrors(): void {
+    this.errors = { name: null, phone: null, email: null, message: null };
+  }
+
+  private setErrors(errors: ValidateResult[]): void {
+    errors.forEach(error => {
+      if (error.valid) return;
+
+      switch(error.propertyName) {
+        case 'name':
+          this.errors.name = error.message;
+          break;
+        case 'phone':
+          this.errors.phone = error.message;
+          break;
+        case 'email':
+          this.errors.email = error.message;
+          break;
+        case 'message':
+          this.errors.message = error.message;
+          break;
+        default:
+          break;
+      }
+    });
+  }
 
   public navigate(id: string): void {
     let element = document.querySelector(`#${id}`);
@@ -44,13 +94,37 @@ export class App {
   }
 
   public sendMessage(): void {
+    this.resetErrors();
+    this.submitted = true;
 
-    const name = this.contact.name;
-    const email = this.contact.email;
-    const phone = this.contact.phone;
-    const message = this.contact.message;
+    this.validation
+      .validate()
+      .then(validation => {
+        console.log(' ::>> validation ', validation);
+        if (!validation.valid) {
+          this.setErrors(validation.results);
+          this.submitted = false;
+          return;
+        }
+        console.log(' ::>> is valid ');
+        this.appService
+          .sendContactEmail(this.name, this.email, this.phone, this.message);
+      });
+  }
 
-    this.appService
-      .sendContactEmail(name, email, phone, message);
+  public nameChanged(): void {
+    this.clearError('name');
+  }
+
+  public phoneChanged(): void {
+    this.clearError('phone');
+  }
+
+  public emailChanged(): void {
+    this.clearError('email');
+  }
+
+  public messageChanged(): void {
+    this.clearError('message');
   }
 }

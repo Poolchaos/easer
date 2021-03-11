@@ -117,6 +117,9 @@ input:-webkit-autofill:active
       margin-top: 10px;
     }
   }
+  &-5-20 {
+    margin: 5px 20px;
+  }
 }
 
 hr {
@@ -124,4 +127,33 @@ hr {
   border-top: 1px solid var(--light--primary);
   opacity: 0.5;
   margin: 20px;
+}
+
+.relative {
+  position: relative;
+}
+
+.error-wrap {
+  &:hover {
+    .error {
+      opacity: 0.4;
+    }
+  }
+}
+
+.error {
+  background: var(--red);
+  color: var(--light-primary);
+  font-size: var(--tiny);
+  padding: 2px 4px;
+
+  &--top {
+    position: absolute;
+    top: 1px;
+  }
+
+  &--right {
+    position: absolute;
+    right: 1px;
+  }
 }

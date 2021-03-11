@@ -6,7 +6,10 @@
   <div class="page">
     <div class="page--header">
       <div class="container">
-        <img src.bind="'ampler 1800x1800.png'" style="width: 50px;" />
+        <div class="flex flex--cols">
+          <img src.bind="'ampler 1800x1800.png'" style="width: 50px;" />
+          <span style="align-self:center;">Flaapworks</span>
+        </div>
         <language-selector></language-selector>
       </div>
       <notifications></notifications>
@@ -107,23 +110,59 @@
       <div id="GetInTouch"
         class="page--content-step">
         <h1 style="text-align: center;">Get In Touch</h1>
-        <div style="text-align: center;">Let us know what you're thinking.</div>
+        <div style="text-align: center;">Let <b class="medium-font red-text">us</b> know what you're <b class="medium-font red-text">thinking</b>.</div>
 
         <div class="form-wrap">
           <div class="left">
-            <input type="text" placeholder="* Enter Your Name" value.bind="contact.name" class="small-font" class.bind="contact.name.length ? 'hasValue' : 'empty'" />
-            <input type="text" placeholder="* Contact Number" value.bind="contact.phone" class="small-font" class.bind="contact.phone.length ? 'hasValue' : 'empty'" />
-            <input type="text" placeholder="* Email" value.bind="contact.email" class="small-font" class.bind="contact.email.length ? 'hasValue' : 'empty'" />
-            <textarea type="text" rows="8" class="small-font" placeholder="* Send Some Greetings" value.bind="contact.message" class.bind="contact.message.length ? 'hasValue' : 'empty'" ></textarea>
+
+            <div class="flex relative mar-5-20 error-wrap">
+              <div class="error error--top error--right rounded-2"
+                if.bind="errors.name">${errors.name}</div>
+              <input type="text"
+                placeholder="* Enter Your Name"
+                value.bind="name & validate"
+                class="small-font flex--fill"
+                class.bind="name.length ? 'hasValue' : 'empty'" />
+            </div>
+            <div class="flex relative mar-5-20 error-wrap">
+              <div class="error error--top error--right rounded-2"
+                if.bind="errors.phone">${errors.phone}</div>
+              <input type="text"
+                placeholder="*  Number"
+                value.bind="phone & validate"
+                class="small-font flex--fill"
+                class.bind="phone.length ? 'hasValue' : 'empty'" />
+            </div>
+            <div class="flex relative mar-5-20 error-wrap">
+              <div class="error error--top error--right rounded-2"
+                if.bind="errors.email">${errors.email}</div>
+              <input type="text"
+                placeholder="* Email"
+                value.bind="email & validate"
+                class="small-font flex--fill"
+                class.bind="email.length ? 'hasValue' : 'empty'" />
+            </div>
+            <div class="flex relative mar-5-20 error-wrap">
+              <div class="error error--top error--right rounded-2"
+                if.bind="errors.message">${errors.message}</div>
+              <textarea type="text"
+                rows="8"
+                class="small-font flex--fill"
+                placeholder="* Send Some Greetings"
+                value.bind="message & validate"
+                class.bind="message.length ? 'hasValue' : 'empty'"></textarea>
+            </div>
+
             <div class="centered">
               <button class="large-font white red-text pad-20 rounded-5" click.trigger="sendMessage()"><b>Sub</b>mit</button>
             </div>
+
           </div>
           <div class="right">
             <div class="flex flex--cols w-95">
               <i class="fas fa-headphones-alt flex--centered-h pad--r-20"></i>
               <div class="flex flex--rows flex--fill">
-                <span class="medium-font">Interested in our services?</span>
+                <span class="medium-font">Interested in our <b class="small-font red-text">services</b>?</span>
                 <span class="white-border small-font pad-10 mar--t-10 rounded-2">sales@flaapworks.co.za</span>
               </div>
             </div>
@@ -131,7 +170,7 @@
             <div class="flex flex--cols w-95">
               <i class="fas fa-tags flex--centered-h pad--r-20"></i> 
               <div class="flex flex--rows flex--fill">
-                <span class="medium-font">Having troubles?</span>
+                <span class="small-font">Having <b class="medium-font red-text">troubles</b>?</span>
                 <span class="white-border small-font pad-10 mar--t-10 rounded-2">support@flaapworks.co.za</span>
             </div>
           </div>
