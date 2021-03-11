@@ -108,11 +108,22 @@
       <div id="GetInTouch"
         class="page--content-step">
         <h1>Get In Touch</h1>
+        <span>Let us know what you're thinking.</span>
+        <div>
+          Enter Your Name <input type="text" value.bind="contact.name" /><br/>
+          Contact Number <input type="text" value.bind="contact.phone" /><br/>
+          Email <input type="text" value.bind="contact.email" /><br/>
+          Say Hello <input type="text" value.bind="contact.message" /><br/>
+          <button click.trigger="sendMessage()">Submit</button>
+        </div>
       </div>
     </div>
     <div class="page--footer">
       
       <div class="copyright-footer desktop" class.bind="device">
+        <div class="copyright">
+          Copyright © 2021 <a click.trigger="navigate('Flaapworks')">Flaapworks</a>. <!--anchor--> All Rights Reserved | <a href="https://www.termsfeed.com/live/a5cd6052-1db2-4a40-a73f-d4c83f8dabed" target="_blank">Terms and Conditions</a>
+        </div>
         <ul class="menu-social-links-menu">
           <li>
             <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MediaBeatSA/">
@@ -139,9 +150,6 @@
             </a>
           </li>
         </ul>
-        <div class="copyright">
-          Copyright © 2021 <a click.trigger="navHome()">Media Beat</a>. <!--anchor--> All Rights Reserved | <a href="https://www.termsfeed.com/live/a5cd6052-1db2-4a40-a73f-d4c83f8dabed" target="_blank">Terms and Conditions</a>
-        </div>
       </div>
 
     </div>
