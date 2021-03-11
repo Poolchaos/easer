@@ -39,7 +39,7 @@ export class PageIndex {
   constructor() {
     console.log(' ::>> navigate now ');
     setTimeout(() => {
-      this.navTo(this.pager.steps[1]);
+      // this.navTo(this.pager.steps[1]);
     }, 1000)
   }
 

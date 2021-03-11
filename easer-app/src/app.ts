@@ -24,11 +24,17 @@ export class App {
     { img: 'react.png', label: 'React' },
     { img: 'redux.png', label: 'Redux' },
     { img: 'rxjs.png', label: 'RxJS' },
-    { img: 'sip.webp', label: 'Sip' },
     { img: 'typescript.png', label: 'TypeScript' },
     { img: 'vue-js.png', label: 'VueJS' },
     { img: 'webpack.png', label: 'Webpack' },
     { img: 'webrtc.png', label: 'Webrtc' },
     { img: 'wordpress.png', label: 'Wordpress' }
   ];
+
+  public navigate(id: string): void {
+    console.log(' ::>> navigate ', id);
+    let element = document.querySelector(`#${id}`);
+    console.log(' ::>> element ', element);
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }
