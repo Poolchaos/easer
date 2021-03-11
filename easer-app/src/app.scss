@@ -119,33 +119,47 @@
   height: 800px;
 }
 
-.table {
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  height: 100%;
-
-  &--col {
+#Services {
+  .table {
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-around;
-    height: 33%;
-    width: 45%;
-    text-align: center;
-    padding: 0 10px;
+    height: 100%;
 
-    .text {
-      text-align: justify;
-    }
-
-    &-descriptor {
+    &--col {
       display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 33%;
+      width: 45%;
+      text-align: center;
+      padding: 0 10px;
 
-      span {
-        margin-left: 20px;
-        align-self: center;
+      .text {
+        text-align: justify;
       }
+
+      &-descriptor {
+        display: flex;
+
+        span {
+          margin-left: 20px;
+          align-self: center;
+        }
+      }
+    }
+  }
+}
+
+#GetInTouch {
+  .form-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+
+    > div {
+      width: 50%;
     }
   }
 }

@@ -107,15 +107,29 @@
       </div>
       <div id="GetInTouch"
         class="page--content-step">
-        <h1>Get In Touch</h1>
-        <span>Let us know what you're thinking.</span>
-        <div>
-          Enter Your Name <input type="text" value.bind="contact.name" /><br/>
-          Contact Number <input type="text" value.bind="contact.phone" /><br/>
-          Email <input type="text" value.bind="contact.email" /><br/>
-          Say Hello <input type="text" value.bind="contact.message" /><br/>
-          <button click.trigger="sendMessage()">Submit</button>
+        <h1 style="text-align: center;">Get In Touch</h1>
+        <div style="text-align: center;">Let us know what you're thinking.</div>
+
+        <div class="form-wrap">
+          <div class="left">
+            <input type="text" placeholder="Enter Your Name" value.bind="contact.name" /><br/>
+            Contact Number <input type="text" value.bind="contact.phone" /><br/>
+            Email <input type="text" value.bind="contact.email" /><br/>
+            Say Hello <input type="text" value.bind="contact.message" /><br/>
+            <button click.trigger="sendMessage()">Submit</button>
+          </div>
+          <div class="right">
+            <div>
+              <i class="fa fa-envelope"></i>support@flaapworks.co.za<br/>
+              Support Queries
+            </div>
+            <div>
+              <i class="fa fa-envelope"></i>support@flaapworks.co.za<br/>
+              Support Queries
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
     <div class="page--footer">
@@ -127,21 +141,12 @@
         <ul class="menu-social-links-menu">
           <li>
             <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MediaBeatSA/">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/MediaBeat1">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          <li> <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/mediabeatsa/">
-             <i class="fa fa-instagram"></i>
+              <i class="fab fa-facebook-f"></i>
             </a>
           </li>
           <li>
             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/67087908/admin/">
-              <i class="fa fa-linkedin"></i>
+              <i class="fab fa-linkedin-in"></i>
             </a>
           </li>
           <li>

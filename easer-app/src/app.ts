@@ -36,12 +36,7 @@ export class App {
     { img: 'webrtc.png', label: 'Webrtc' },
     { img: 'wordpress.png', label: 'Wordpress' }
   ];
-  public contact = {
-    name: '',
-    phone: '',
-    email: '',
-    message: ''
-  };
+  public contact = { name: '', phone: '', email: '', message: '' };
 
   constructor(private httpClient: HttpClient) {}
 
