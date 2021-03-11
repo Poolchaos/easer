@@ -35,65 +35,64 @@
       </div>
       <div id="Services"
         class="page--content-step">
-        <div class="page--content-step-inner">
-          <div class="table">
-            <div class="table--col">
-              <div class="table--col-descriptor">
-                <img src.bind="'random-1.png'" />
-                <span class="medium-font">Website</span>
-              </div>
-              <div class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
-              </div>
+
+        <div class="table">
+          <div class="table--col">
+            <div class="table--col-descriptor">
+              <img src.bind="'random-1.png'" />
+              <span class="medium-font">Website</span>
             </div>
-            <div class="table--col">
-              <div class="table--col-descriptor">
-                <img src.bind="'random-2.png'" />
-                <span class="medium-font">Web Application</span>
-              </div>
-              <div class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
-              </div>
-            </div>
-            <div class="table--col">
-              <div class="table--col-descriptor">
-                <img src.bind="'random-3.png'" />
-                <span class="medium-font">Brochure Sites</span>
-              </div>
-              <div class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
-              </div>
-            </div>
-            <div class="table--col">
-              <div class="table--col-descriptor">
-                <img src.bind="'random-4.png'" />
-                <span class="medium-font">E-Commerce</span>
-              </div>
-              <div class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
-              </div>
-            </div>
-            <div class="table--col">
-              <div class="table--col-descriptor">
-                <img src.bind="'random-5.png'" />
-                <span class="medium-font">SEO</span>
-              </div>
-              <div class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
-              </div>
-            </div>
-            <div class="table--col">
-              <div class="table--col-descriptor">
-                <img src.bind="'random-6.png'" />
-                <span class="medium-font">Consulting</span>
-              </div>
-              <div class="text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
-              </div>
+            <div class="text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
             </div>
           </div>
-
+          <div class="table--col">
+            <div class="table--col-descriptor">
+              <img src.bind="'random-2.png'" />
+              <span class="medium-font">Web Application</span>
+            </div>
+            <div class="text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+            </div>
+          </div>
+          <div class="table--col">
+            <div class="table--col-descriptor">
+              <img src.bind="'random-3.png'" />
+              <span class="medium-font">Brochure Sites</span>
+            </div>
+            <div class="text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+            </div>
+          </div>
+          <div class="table--col">
+            <div class="table--col-descriptor">
+              <img src.bind="'random-4.png'" />
+              <span class="medium-font">E-Commerce</span>
+            </div>
+            <div class="text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+            </div>
+          </div>
+          <div class="table--col">
+            <div class="table--col-descriptor">
+              <img src.bind="'random-5.png'" />
+              <span class="medium-font">SEO</span>
+            </div>
+            <div class="text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+            </div>
+          </div>
+          <div class="table--col">
+            <div class="table--col-descriptor">
+              <img src.bind="'random-6.png'" />
+              <span class="medium-font">Consulting</span>
+            </div>
+            <div class="text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+            </div>
+          </div>
         </div>
+
       </div>
       <div id="Explore"
         class="page--content-step">
@@ -112,12 +111,12 @@
 
         <div class="form-wrap">
           <div class="left">
-            <input type="text" placeholder="Enter Your Name" value.bind="contact.name" class.bind="contact.name.length ? 'hasValue' : 'empty'" />
-            <input type="text" placeholder="Contact Number" value.bind="contact.phone" class.bind="contact.phone.length ? 'hasValue' : 'empty'" />
-            <input type="text" placeholder="Email" value.bind="contact.email" class.bind="contact.email.length ? 'hasValue' : 'empty'" />
-            <textarea type="text" rows="8" class="small-font" placeholder="Send Some Greetings" value.bind="contact.message" class.bind="contact.message.length ? 'hasValue' : 'empty'" ></textarea>
+            <input type="text" placeholder="* Enter Your Name" value.bind="contact.name" class="small-font" class.bind="contact.name.length ? 'hasValue' : 'empty'" />
+            <input type="text" placeholder="* Contact Number" value.bind="contact.phone" class="small-font" class.bind="contact.phone.length ? 'hasValue' : 'empty'" />
+            <input type="text" placeholder="* Email" value.bind="contact.email" class="small-font" class.bind="contact.email.length ? 'hasValue' : 'empty'" />
+            <textarea type="text" rows="8" class="small-font" placeholder="* Send Some Greetings" value.bind="contact.message" class.bind="contact.message.length ? 'hasValue' : 'empty'" ></textarea>
             <div class="centered">
-              <button class="white blue-text small-font pad-10" click.trigger="sendMessage()"><b>Submit</b></button>
+              <button class="large-font white red-text pad-20 rounded-5" click.trigger="sendMessage()"><b>Sub</b>mit</button>
             </div>
           </div>
           <div class="right">
@@ -125,7 +124,7 @@
               <i class="fas fa-headphones-alt flex--centered-h pad--r-20"></i>
               <div class="flex flex--rows flex--fill">
                 <span class="medium-font">Interested in our services?</span>
-                <span class="white-border small-font pad-10 mar--t-10 hoverable">sales@flaapworks.co.za</span>
+                <span class="white-border small-font pad-10 mar--t-10 rounded-2">sales@flaapworks.co.za</span>
               </div>
             </div>
             <hr/>
@@ -133,38 +132,38 @@
               <i class="fas fa-tags flex--centered-h pad--r-20"></i> 
               <div class="flex flex--rows flex--fill">
                 <span class="medium-font">Having troubles?</span>
-                <span class="white-border small-font pad-10 mar--t-10 hoverable">support@flaapworks.co.za</span>
+                <span class="white-border small-font pad-10 mar--t-10 rounded-2">support@flaapworks.co.za</span>
             </div>
           </div>
         </div>
 
       </div>
     </div>
-    <div class="page--footer">
-      
-      <div class="copyright-footer">
-        <div class="copyright">
-          Copyright © 2021 <a click.trigger="navigate('Flaapworks')">Flaapworks</a>. <!--anchor--> All Rights Reserved | <a href="https://www.termsfeed.com/live/a5cd6052-1db2-4a40-a73f-d4c83f8dabed" target="_blank">Terms and Conditions</a>
-        </div>
-        <ul class="menu-social-links-menu">
-          <li>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MediaBeatSA/">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-          </li>
-          <li>
-            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/phillip-juan-van-der-berg-87785a58/">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </li>
-          <li>
-            <a click.trigger="contactUs()" class="au-target" au-target-id="12">
-              <i class="fa fa-envelope"></i>
-            </a>
-          </li>
-        </ul>
+  </div>
+  <div class="page--footer">
+    
+    <div class="copyright-footer">
+      <div class="copyright">
+        Copyright © 2021 <a click.trigger="navigate('Flaapworks')">Flaapworks</a>. <!--anchor--> All Rights Reserved | <a href="https://www.termsfeed.com/live/a5cd6052-1db2-4a40-a73f-d4c83f8dabed" target="_blank">Terms and Conditions</a>
       </div>
-
+      <ul class="menu-social-links-menu">
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MediaBeatSA/">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </li>
+        <li>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/phillip-juan-van-der-berg-87785a58/">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </li>
+        <li>
+          <a click.trigger="contactUs()" class="au-target" au-target-id="12">
+            <i class="fa fa-envelope"></i>
+          </a>
+        </li>
+      </ul>
     </div>
+
   </div>
 </template>

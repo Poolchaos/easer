@@ -1,11 +1,9 @@
 import 'includes';
 import 'app.scss';
 
-import{ init } from 'emailjs-com';
-init("user_HB0sidICvn4VKjVvChK57");
-
 import { autoinject } from 'aurelia-framework';
-import { HttpClient } from 'aurelia-http-client';
+
+import { AppService } from 'app-service';
 
 @autoinject()
 export class App {
@@ -38,7 +36,7 @@ export class App {
   ];
   public contact = { name: '', phone: '', email: '', message: '' };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private appService: AppService) {}
 
   public navigate(id: string): void {
     let element = document.querySelector(`#${id}`);
@@ -46,19 +44,13 @@ export class App {
   }
 
   public sendMessage(): void {
-    this.httpClient
-      .createRequest('https://api.emailjs.com/api/v1.0/email/send')
-      .asPost()
-      .withContent({
-        user_id: 'user_HB0sidICvn4VKjVvChK57',
-        service_id: 'service_d6die1r',
-        template_id: 'template_8ld8gcv',
-        template_params: this.contact
-      })
-      .withHeader('Content-Type', 'application/json')
-      .send()
-      .catch(e => {
-        console.error(' ::>> failed to send email ', e);
-      });
+
+    const name = this.contact.name;
+    const email = this.contact.email;
+    const phone = this.contact.phone;
+    const message = this.contact.message;
+
+    this.appService
+      .sendContactEmail(name, email, phone, message);
   }
 }
