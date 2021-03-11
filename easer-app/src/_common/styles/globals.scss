@@ -16,3 +16,37 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+.blue {
+  background: var(--blue)!important;
+}
+
+.red {
+  background: var(--red)!important;
+}
+
+.white {
+  background: var(--light--primary)!important;
+}
+
+.red-text {
+  color: var(--red)!important;
+}
+
+.blue-text {
+  color: var(--blue)!important;
+}
+
+.pad-10 {
+  padding: 10px!important;
+}
+
+.pad-20 {
+  padding: 20px!important;
+}
+
+.rounded {
+  &-5 {
+    border-radius: 5px!important;
+  }
+}

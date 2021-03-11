@@ -93,17 +93,27 @@ html, body, div, a, button, li {
 .tiny-font {
   font-size: var(--tiny);
 }
-
 .small-font {
   font-size: var(--small);
 }
-
 .medium-font {
   font-size: var(--medium);
 }
-
 .large-font {
   font-size: var(--large);
+}
+
+.tiny-line {
+  line-height: calc(var(--tiny) + 3px);
+}
+.small-line {
+  line-height: calc(var(--small) + 3px);
+}
+.medium-line {
+  line-height: calc(var(--medium) + 3px);
+}
+.large-line {
+  line-height: calc(var(--large) + 3px);
 }
 
 /*------------------------------------*\

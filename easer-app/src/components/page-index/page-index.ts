@@ -6,10 +6,10 @@ import './page-index.scss';
 class Pager {;
 
   public steps = [
-    { label: 'Ampler', active: null, enabled: true, activeSteps: ['Ampler'] },
-    { label: 'Projects', active: null, enabled: false, arrowImg: 'curly-dotted-arrow.png', activeSteps: ['Ampler', 'Projects'] },
-    { label: 'Explore', active: null, enabled: false, arrowImg: 'curved-arrow-with-broken-line.png', activeSteps: ['Ampler', 'Projects', 'Explore'] },
-    { label: 'GetInTouch', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Ampler', 'Projects', 'Explore', 'GetInTouch'] }
+    { label: 'Flaapworks', active: null, enabled: true, activeSteps: ['Flaapworks'] },
+    { label: 'Solutions', active: null, enabled: false, arrowImg: 'curly-dotted-arrow.png', activeSteps: ['Flaapworks', 'Solutions'] },
+    { label: 'Explore', active: null, enabled: false, arrowImg: 'curved-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Solutions', 'Explore'] },
+    { label: 'Get In Touch', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Solutions', 'Explore', 'GetInTouch'] }
   ];
 
   public go(action: { label: string, activeSteps: string[] }): void {
@@ -29,7 +29,7 @@ class Pager {;
 @customElement('page-index')
 export class PageIndex {
 
-  @bindable public active = 'Ampler'
+  @bindable public active = 'Flaapworks'
 
   public pager = new Pager();
 
@@ -39,10 +39,10 @@ export class PageIndex {
   public attached(): void {
 
     let easerObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 0));
-    easerObserver.observe(document.querySelector('#Ampler'));
+    easerObserver.observe(document.querySelector('#Flaapworks'));
     
     let appObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 1));
-    appObserver.observe(document.querySelector('#Projects'));
+    appObserver.observe(document.querySelector('#Solutions'));
     
     let compObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 2));
     compObserver.observe(document.querySelector('#Explore'));
