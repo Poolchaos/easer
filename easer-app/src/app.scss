@@ -31,23 +31,6 @@
     height: 100%;
     margin-top: 150px;
 
-    .home {
-      button {
-        outline: none;
-        background: rgba(0, 0, 0, 0);
-        padding: 10px 20px;
-        color: var(--dark--primary-text);
-        border: 1px solid var(--dark--primary-text);
-        cursor: pointer;
-
-        &:hover {
-          box-shadow: -1px 6px 14px 0px rgba(255,255,255,0.31);
-          -webkit-box-shadow: -1px 6px 14px 0px rgba(255,255,255,0.31);
-          -moz-box-shadow: -1px 6px 14px 0px rgba(255,255,255,0.31);
-        }
-      }
-    }
-
     &-step:nth-child(1), &-step:nth-child(4) {
       border: 1px solid rgba(255,255,255,0.2);
       width: calc(100% - var(--spacer) * 2)!important;
@@ -112,6 +95,28 @@
         margin: 0 5px;
       }
     }
+
+    .copyright-footer {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+#Flaapworks {
+  button {
+    outline: none;
+    background: rgba(0, 0, 0, 0);
+    padding: 10px 20px;
+    color: var(--dark--primary-text);
+    border: 1px solid var(--dark--primary-text);
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: -1px 6px 14px 0px rgba(255,255,255,0.31);
+      -webkit-box-shadow: -1px 6px 14px 0px rgba(255,255,255,0.31);
+      -moz-box-shadow: -1px 6px 14px 0px rgba(255,255,255,0.31);
+    }
   }
 }
 
@@ -157,9 +162,51 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
+    margin-top: 50px;
 
     > div {
       width: 50%;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      input, textarea {
+        background: rgba(0, 0, 0, 0);
+        margin: 5px 20px;
+        padding: 10px;
+        border: 1px solid var(--light--primary);
+        border-radius: 2px;
+        color: var(--light--primary);
+
+        &.hasValue {
+          background: var(--light--primary);
+          color: var(--light--primary-text);
+        }
+      }
+      textarea {
+        resize: none;
+
+      }
+      input:focus, textarea:focus, select:focus{
+        outline: none;
+      }
+
+      button {
+        outline: none;
+        border: 1px solid var(--dark--primary-text);
+        cursor: pointer;
+        width: 100px;
+        margin-top: 15px;
+      }
+    }
+
+    .right {
+      .link {
+        
+      }
     }
   }
 }
