@@ -6,22 +6,22 @@ import './page-index.scss';
 class Pager {;
 
   public steps = [
-    { label: 'Flaapworks', active: null, enabled: true, activeSteps: ['Flaapworks'] },
-    { label: 'Solutions', active: null, enabled: false, arrowImg: 'curly-dotted-arrow.png', activeSteps: ['Flaapworks', 'Solutions'] },
-    { label: 'Explore', active: null, enabled: false, arrowImg: 'curved-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Solutions', 'Explore'] },
-    { label: 'Get In Touch', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Solutions', 'Explore', 'GetInTouch'] }
+    { id: 'Flaapworks', label: 'Flaapworks', active: null, enabled: true, activeSteps: ['Flaapworks'] },
+    { id: 'Services', label: 'Services', active: null, enabled: false, arrowImg: 'curly-dotted-arrow.png', activeSteps: ['Flaapworks', 'Services'] },
+    { id: 'Explore', label: 'Explore', active: null, enabled: false, arrowImg: 'curved-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Services', 'Explore'] },
+    { id: 'GetInTouch', label: 'Get In Touch', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Services', 'Explore', 'GetInTouch'] }
   ];
 
-  public go(action: { label: string, activeSteps: string[] }): void {
+  public go(action: { id: string, activeSteps: string[] }): void {
     this.steps.forEach(step => {
-      if(action.activeSteps.includes(step.label)) {
+      if(action.activeSteps.includes(step.id)) {
         step.active = true;
       } else {
         step.active = false;
       }
-      step.enabled = action.label === step.label;
+      step.enabled = action.id === step.id;
     });
-    let element = document.querySelector(`#${action.label}`);
+    let element = document.querySelector(`#${action.id}`);
     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 }
@@ -36,13 +36,20 @@ export class PageIndex {
   private timeout = null;
   private ignoreScroll: boolean = false;
 
+  constructor() {
+    console.log(' ::>> navigate now ');
+    setTimeout(() => {
+      this.navTo(this.pager.steps[1]);
+    }, 1000)
+  }
+
   public attached(): void {
 
     let easerObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 0));
     easerObserver.observe(document.querySelector('#Flaapworks'));
     
     let appObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 1));
-    appObserver.observe(document.querySelector('#Solutions'));
+    appObserver.observe(document.querySelector('#Services'));
     
     let compObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 2));
     compObserver.observe(document.querySelector('#Explore'));

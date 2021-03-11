@@ -15,13 +15,13 @@
     <div class="page--content" id="content">
 
       <div id="Flaapworks"
-        class="home page--content-step ${active === 'Flaapworks' ? 'slide-in': 'slide-out'}"
+        class="home page--content-step"
         style="display: flex;flex-direction: column;justify-content: center;text-align: center;">
         <!-- <h1 i18n="title"></h1> -->
         
         <img src.bind="'puzzle-piece-3.png'" style="position: absolute;top: 20px;right: 50px;width:150px; opacity: 0.1;" />
         <img src.bind="'ampler-red.png'" style="width: 150px;margin: 0 auto;" />
-        <h1>Fast and responsive Web Solutions</h1>
+        <h1>Fast and responsive Web Services</h1>
         <h3>We build websites and web apps to fit your needs.</h3>
         <div>
           <div style="display: flex;justify-content: center;">
@@ -29,25 +29,83 @@
             <button class="pad-10"><b>About</b></button>
           </div>
           <div style="margin-top: 20px;">
-            <button class="large-font white red-text pad-20 rounded">Get a <b>FREE</b> Quote</button>
+            <button class="large-font white red-text pad-20 rounded-5">Get a <b>FREE</b> Quote</button>
           </div>
         </div>
       </div>
-      <div id="Solutions"
-        class="page--content-step ${active === 'Solutions' ? 'slide-in': 'slide-out'}">
-        <div class="page--content-step-inner ${active === 'Solutions' ? 'slide-in': 'slide-out'}">
-          <h1>Solutions</h1>
+      <div id="Services"
+        class="page--content-step">
+        <div class="page--content-step-inner">
+          <h1>Services</h1>
+
+          <div class="table">
+            <div class="table--col">
+              <div class="table--col-descriptor">
+                <img src.bind="'ampler-red.png'" style="height: 100px;" />
+                <span>Website</span>
+              </div>
+              <div class="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              </div>
+            </div>
+            <div class="table--col">
+              <div class="table--col-descriptor">
+                <img src.bind="'ampler-red.png'" style="height: 100px;" />
+                <span>Web Application</span>
+              </div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              </div>
+            </div>
+            <div class="table--col">
+              <div class="table--col-descriptor">
+                <img src.bind="'ampler-red.png'" style="height: 100px;" />
+                <span>Brochure Sites</span>
+              </div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              </div>
+            </div>
+            <div class="table--col">
+              <div class="table--col-descriptor">
+                <img src.bind="'ampler-red.png'" style="height: 100px;" />
+                <span>E-Commerce</span>
+              </div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              </div>
+            </div>
+            <div class="table--col">
+              <div class="table--col-descriptor">
+                <img src.bind="'ampler-red.png'" style="height: 100px;" />
+                <span>SEO</span>
+              </div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              </div>
+            </div>
+            <div class="table--col">
+              <div class="table--col-descriptor">
+                <img src.bind="'ampler-red.png'" style="height: 100px;" />
+                <span>Consulting</span>
+              </div>
+              <div>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
       <div id="Explore"
-        class="page--content-step ${active === 'Explore' ? 'slide-in': 'slide-out'}">
-        <div class="page--content-step-inner ${active === 'Explore' ? 'slide-in': 'slide-out'}">
+        class="page--content-step">
+        <div class="page--content-step-inner">
           <h1>Explore</h1>
         </div>
       </div>
       <div id="GetInTouch"
-        class="page--content-step ${active === 'GetInTouch' ? 'slide-in': 'slide-out'}">
-        <div class="page--content-step-inner ${active === 'GetInTouch' ? 'slide-in': 'slide-out'}">
+        class="page--content-step">
+        <div class="page--content-step-inner">
           <h1>Get In Touch</h1>
         </div>
       </div>
