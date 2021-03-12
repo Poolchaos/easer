@@ -68,6 +68,11 @@ export class App {
     this.errors = { name: null, phone: null, email: null, message: null };
   }
 
+  private getQuote(service: string): void {
+    console.log(' get a quote for ', service);
+    // todo: implement this
+  }
+
   private setErrors(errors: ValidateResult[]): void {
     errors.forEach(error => {
       if (error.valid) return;

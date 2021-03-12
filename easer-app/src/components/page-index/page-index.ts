@@ -9,8 +9,8 @@ class Pager {;
     { id: 'Flaapworks', label: 'Flaapworks', active: null, enabled: true, activeSteps: ['Flaapworks'] },
     { id: 'Services', label: 'Services', active: null, enabled: false, arrowImg: 'curly-dotted-arrow.png', activeSteps: ['Flaapworks', 'Services'] },
     { id: 'Explore', label: 'Explore', active: null, enabled: false, arrowImg: 'curved-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Services', 'Explore'] },
-    { id: 'About', label: 'About', active: null, enabled: false, arrowImg: 'up-broken-line-arrow.png', activeSteps: ['Flaapworks', 'Services', 'Explore', 'About'] },
-    { id: 'GetInTouch', label: 'Get In Touch', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Services', 'Explore', 'About', 'GetInTouch'] }
+    { id: 'Recommendations', label: 'Recommendations', active: null, enabled: false, arrowImg: 'up-broken-line-arrow.png', activeSteps: ['Flaapworks', 'Services', 'Explore', 'Recommendations'] },
+    { id: 'GetInTouch', label: 'Get In Touch', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Services', 'Explore', 'Recommendations', 'GetInTouch'] }
   ];
 
   public go(action: { id: string, activeSteps: string[] }): void {
@@ -61,7 +61,7 @@ export class PageIndex {
     compObserver.observe(document.querySelector('#Explore'));
     
     let aboutObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 3));
-    aboutObserver.observe(document.querySelector('#About'));
+    aboutObserver.observe(document.querySelector('#Recommendations'));
     
     let contactObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 4));
     contactObserver.observe(document.querySelector('#GetInTouch'));

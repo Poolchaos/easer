@@ -25,11 +25,11 @@
         <img src.bind="'puzzle-piece-3.png'" style="position: absolute;top: 20px;right: 50px;width:150px; opacity: 0.1;" />
         <img src.bind="'ampler-red.png'" style="width: 150px;margin: 0 auto;" />
         <h1>Fast and Responsive Web Services</h1>
-        <h3>We build websites and web apps to fit your needs.</h3>
+        <h3>If you have the vision, we can help you reach it.</h3>
         <div>
           <div style="display: flex;justify-content: center;">
             <button class="white red-text small-font pad-10" click.trigger="navigate('Services')"><b>Services</b></button>
-            <button class="pad-10" click.trigger="navigate('About')"><b>About</b></button>
+            <button class="pad-10" click.trigger="navigate('Recommendations')"><b>Recommendations</b></button>
           </div>
           <div style="margin-top: 20px;">
             <button class="large-font white red-text pad-20 rounded-5">Get a <b>FREE</b> Quote</button>
@@ -43,10 +43,15 @@
           <div class="table--col">
             <div class="table--col-descriptor">
               <img src.bind="'random-1.png'" />
-              <span class="medium-font">Website</span>
+              <div class="flex flex--rows">
+                <span class="medium-font">Website</span>
+                <button class="white red-text small-font pad-10" click.trigger="getQuote('Services')"><b>Services</b></button>
+              </div>
             </div>
             <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              Let us work to build you the perfect website.
+              Do you need a protfolio website, personal website or a business website? 
+              All your needs in one place.
             </div>
           </div>
           <div class="table--col">
@@ -55,7 +60,7 @@
               <span class="medium-font">Web Application</span>
             </div>
             <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              Identify your problem and create solutions using the latest and best stack to suit your needs.
             </div>
           </div>
           <div class="table--col">
@@ -64,7 +69,7 @@
               <span class="medium-font">Brochure Sites</span>
             </div>
             <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              Do you need a brochure website. Any site can be built from wireframes and designs.
             </div>
           </div>
           <div class="table--col">
@@ -73,7 +78,7 @@
               <span class="medium-font">E-Commerce</span>
             </div>
             <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              Do you need the perfect platform to sell products or services? Let us journey to build the platform.
             </div>
           </div>
           <div class="table--col">
@@ -82,7 +87,7 @@
               <span class="medium-font">SEO</span>
             </div>
             <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              Looking to improve your search engine ranking, the goal is within our grasp. All you need to do is to reach out.
             </div>
           </div>
           <div class="table--col">
@@ -91,7 +96,7 @@
               <span class="medium-font">Consulting</span>
             </div>
             <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet vitae odio eu molestie. Donec quis dapibus lorem.
+              Do you need the answer. Let us meets your needs together.
             </div>
           </div>
         </div>
@@ -108,11 +113,105 @@
         </div>
       </div>
     
-      <div id="About"
+      <div id="Recommendations"
       class="page--content-step">
-        <h1 style="text-align: center;">About</h1>
-        <div>
+        <h1 style="text-align: center;">Recommendations</h1>
+        <div class="tabs flex flex--rows">
+          <div class="tabs--content flex flex--rows">
 
+            <div class="flex flex--cols mar--top-20">
+              <a class="flex flex--rows inherit-text" href="https://www.linkedin.com/in/kornel-steyn-40397124/" target="_blank">
+                <img class="profile mar-5-10" src.bind="'kornel.jpg'" />
+              </a>
+              <div class="mar-5-10 description">
+                <a class="flex flex--rows inherit-text hoverable--underlined" href="https://www.linkedin.com/in/kornel-steyn-40397124/" target="_blank">
+                  <span class="medium-font mar--b-10"><b>
+                    Kornel Steyn
+                  </b></span>
+                  <span>Principal Solutions Architect at Mobik</span>
+                  <span class="tiny-font mar--t-5">August 5, 2019, Kornel was senior to Phillip-Juan but didn’t manage directly</span>
+                </a>
+              </div>
+              <span class="medium-font relative mar-5-10">
+                <span class="large-font start-quote">&ldquo;</span>
+                <a class="inherit-text" href="https://www.linkedin.com/in/phillip-juan-van-der-berg-87785a58/" target="_blank">
+                  Phillip is an excellent developer who can get into the deep side of any code. He flourishes when presented with a challenge to solve.
+                </a>
+                <span class="large-font">&rdquo;</span>
+              </span>
+            </div>
+
+            <div class="flex flex--cols mar--t-20">
+              <a class="flex flex--rows inherit-text" href="https://www.linkedin.com/in/marcel-steenkamp-7027064a/" target="_blank">
+                <img class="profile mar-5-10" src.bind="'marcel.jpg'" />
+              </a>
+              <div class="mar-5-10 description">
+                <a class="flex flex--rows inherit-text hoverable--underlined" href="https://www.linkedin.com/in/marcel-steenkamp-7027064a/" target="_blank">
+                  <span class="medium-font mar--b-10"><b>
+                    Marcel Steenkamp
+                  </b></span>
+                  <span>Intermediate Front End Developer at DigiOutsource</span>
+                  <span class="tiny-font mar--t-5">July 2, 2019, Phillip-Juan worked with Marcel in the same group</span>
+                </a>
+              </div>
+              <span class="medium-font relative mar-5-10">
+                <span class="large-font start-quote">&ldquo;</span>
+                <a class="inherit-text" href="https://www.linkedin.com/in/phillip-juan-van-der-berg-87785a58/" target="_blank">
+                  Phillip is an extreme worker. He makes time to research the code he's using to make sure he uses it at it's best potential. 
+                  He delivers robust code which is thought through. He likes sharing ideas and to collaborate with his peers. His commitment and 
+                  loyalty is very respected. Phillip would be an asset to any company who decides to employ him.
+                </a>
+                <span class="large-font">&rdquo;</span>
+              </span>
+            </div>
+
+            <div class="flex flex--cols mar--t-20">
+              <a class="flex flex--rows inherit-text" href="https://www.linkedin.com/in/louise768/" target="_blank">
+                <img class="profile mar-5-10" src.bind="'louise.jpg'" />
+              </a>
+              <div class="mar-5-10 description">
+                <a class="flex flex--rows inherit-text hoverable--underlined" href="https://www.linkedin.com/in/louise768/" target="_blank">
+                  <span class="medium-font mar--b-10"><b>
+                    Louise du Plesis
+                  </b></span>
+                  <span>Strategic Product Manager | Internet of Things</span>
+                  <span class="tiny-font mar--t-5">June 28, 2019, Phillip-Juan worked with Louise in the same group</span>
+                </a>
+              </div>
+              <span class="medium-font relative mar-5-10">
+                <span class="large-font start-quote">&ldquo;</span>
+                <a class="inherit-text" href="https://www.linkedin.com/in/phillip-juan-van-der-berg-87785a58/" target="_blank">
+                  One of the most hard-working, brilliant and detail-orientated people I have met, Phillip is a dev you can count on to get the job done.
+                </a>
+                <span class="large-font">&rdquo;</span>
+              </span>
+            </div>
+
+            <div class="flex flex--cols mar--t-20 mar--b-20">
+              <a class="flex flex--rows inherit-text" href="https://www.linkedin.com/in/james-jay-wilson/" target="_blank">
+                <img class="profile mar-5-10" src.bind="'james.jpg'" />
+              </a>
+              <div class="mar-5-10 description">
+                <a class="flex flex--rows inherit-text hoverable--underlined" href="https://www.linkedin.com/in/james-jay-wilson/" target="_blank">
+                  <span class="medium-font mar--b-10"><b>
+                    James Wilson
+                  </b></span>
+                  <span>Frontend Developer at Platinum Seed</span>
+                  <span class="tiny-font mar--t-5">February 14, 2018, Phillip-Juan worked with James in the same group</span>
+                </a>
+              </div>
+              <span class="medium-font relative mar-5-10">
+                <span class="large-font start-quote">&ldquo;</span>
+                <a class="inherit-text" href="https://www.linkedin.com/in/phillip-juan-van-der-berg-87785a58/" target="_blank">
+                  Phillip is by far the most friendly and patient guy I have ever had the pleasure of working with. He's a gifted teacher and I'm grateful 
+                  for the time I spent learning from him. He works incredibly hard and you always get the sense that he's a master of his craft because he 
+                  enjoys it so much.
+
+                </a>
+                <span class="large-font">&rdquo;</span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -198,19 +297,14 @@
         <a href="https://www.termsfeed.com/live/8269ba30-ad26-42be-96d6-360b3dbed5b1" target="_blank">Disclaimer</a>
       </div>
       <ul class="menu-social-links-menu">
-        <li>
+        <!-- <li>
           <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/MediaBeatSA/">
             <i class="fab fa-facebook-f"></i>
           </a>
-        </li>
+        </li> -->
         <li>
           <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/71708566">
             <i class="fab fa-linkedin-in"></i>
-          </a>
-        </li>
-        <li>
-          <a click.trigger="contactUs()" class="au-target" au-target-id="12">
-            <i class="fa fa-envelope"></i>
           </a>
         </li>
       </ul>
