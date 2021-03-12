@@ -1,0 +1,53 @@
+ux-dialog-container {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dialog {
+  background: var(--light--primary);
+  color: var(--light--primary-text);
+  width: 600px;
+  min-height: 500px;
+  
+  &--header {
+
+  }
+
+  &--content {
+    // background: var();
+    width: calc(100% - 200px);
+    padding: 0 100px;
+    height: calc(500px - 72px * 2);
+    
+    input, textarea, select, option {
+      background: rgba(0, 0, 0, 0);
+      padding: 10px;
+      border: 1px solid var(--light--primary);
+      border-radius: 2px;
+      color: var(--light--primary);
+
+      &.hasValue {
+        background: var(--light--primary);
+        color: var(--light--primary-text);
+      }
+    }
+
+    select {
+      width: 100%;
+      cursor: pointer;
+    }
+    option {
+      color: var(--light--primary);
+      background: var(--light--primary-text);
+      font-size: var(--medium-font);
+    }
+    textarea {
+      resize: none;
+    }
+  }
+
+  &--footer {
+    button {
+      border: 1px solid white;
+    }
+  }
+}

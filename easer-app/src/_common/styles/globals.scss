@@ -29,6 +29,13 @@ a {
   background: var(--light--primary)!important;
 }
 
+.opac {
+  background: rgba(0, 0, 0, 0);
+}
+
+.gray {
+  background: var(--dark--secondary)!important;
+}
 .red-text {
   color: var(--red)!important;
 }
@@ -37,12 +44,24 @@ a {
   color: var(--blue)!important;
 }
 
+.white-text {
+  color: var(--light--primary)!important;
+}
+
+.gray-text {
+  color: var(--dark--secondary)!important;
+}
+
 .inherit-text {
   color: inherit!important;
 }
 
 .white-border {
   border: 1px solid var(--light--primary)!important;
+}
+
+.gray-border {
+  border: 1px solid var(--dark--secondary)!important;
 }
 
 .rounded {
@@ -77,6 +96,10 @@ input:-webkit-autofill:active
  -webkit-box-shadow: 0 0 0 30px var(--light--primary) inset !important;
 }
 
+input:focus, textarea:focus, select:focus, button:focus {
+  outline: none;
+}
+
 .flex {
   display: flex;
 
@@ -95,11 +118,22 @@ input:-webkit-autofill:active
   &--centered-h {
     align-self: center;
   }
+
+  &--between {
+    justify-content: space-between;
+  }
+
+  &--around {
+    justify-content: space-around;
+  }
 }
 
 .w { // width
   &-95 {
     width: 95%;
+  }
+  &--full {
+    width: 100%;
   }
 }
 

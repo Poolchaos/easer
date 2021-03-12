@@ -1,9 +1,5 @@
-import 'includes';
-import 'app.scss';
-
 import { autoinject, observable } from 'aurelia-framework';
-import { EventAggregator } from 'aurelia-event-aggregator';
-import { DialogService } from 'aurelia-dialog';
+import { DialogController } from "aurelia-dialog";
 import {
   ValidationControllerFactory,
   ValidationController,
@@ -12,33 +8,29 @@ import {
   ValidateResult
 } from 'aurelia-validation';
 
-import { AppService } from './app-service';
-import { SKILLS } from '_common/constants/skills';
-import { QuoteDialog } from 'components/quote-dialog/quote-dialog';
+import './quote-dialog.scss';
+import { AppService } from 'app-service';
 
 @autoinject()
-export class App {
-  public skillList: any[] = SKILLS;
+export class QuoteDialog {
 
   @observable public name: '';
   @observable public phone: '';
   @observable public email: '';
+  @observable public service: 'Website';
   @observable public message: '';
   public validation: ValidationController;
   public submitted: boolean = false;
   public errors = { name: null, phone: null, email: null, message: null };
-  public sent: boolean = false;
 
   constructor(
+    private dialogController: DialogController,
     private appService: AppService,
-    private eventAggregator: EventAggregator,
-    private dialogService: DialogService,
     validationControllerFactory: ValidationControllerFactory
   ) {
     this.validation = validationControllerFactory.createForCurrentScope();
     this.validation.validateTrigger = validateTrigger.changeOrBlur;
   }
-
   public activate(): void {
     this.setupValidations();
   }
@@ -71,14 +63,6 @@ export class App {
     this.errors = { name: null, phone: null, email: null, message: null };
   }
 
-  private resetForm(): void {
-    this.resetErrors();
-    this.name = '';
-    this.phone = '';
-    this.email = '';
-    this.message = '';
-  }
-
   private setErrors(errors: ValidateResult[]): void {
     errors.forEach(error => {
       if (error.valid) return;
@@ -102,23 +86,7 @@ export class App {
     });
   }
 
-  public navigate(id: string): void {
-    this.eventAggregator.publish('INDEX:SELECT', id);
-  }
-
-  public getQuote(service: string): void {
-    console.log(' get a quote for ', service);
-    // todo: implement this
-    this.dialogService
-      .open({ viewModel: QuoteDialog, model: {} })
-      .then(dialog => {
-        if (dialog.wasCancelled) {
-          return;
-        }
-      });
-  }
-
-  public sendMessage(): void {
+  public sendQuoteRequest(): void {
     this.resetErrors();
     this.submitted = true;
 
@@ -132,46 +100,40 @@ export class App {
           return;
         }
         console.log(' ::>> is valid ');
-        this.appService
-          .sendContactEmail(
-            this.name,
-            this.phone,
-            this.email,
-            this.message
-          )
-          .then(() => {
-            this.messageSent();
-            this.resetForm()
-          })
-          .catch(e => {
-            console.log(' ::>> Failed to send email due to cause', e);
-          })
-          .finally(() => {
-            this.submitted = false;
-          });
+        this.confirm();
       });
   }
 
-  private messageSent(): void {
-    this.sent = true;
-    setTimeout(() => {
-      this.sent = false;
-    }, 3000);
+  private confirm(): void {
+    this.appService
+      .sendContactEmail(
+        this.name,
+        this.phone,
+        this.email,
+        this.message,
+        this.service
+      )
+      .then(() => {
+        this.dialogController.ok();
+        this.resetForm();
+      })
+      .catch(e => {
+        console.log(' ::>> Failed to send email due to cause', e);
+      })
+      .finally(() => {
+        this.submitted = false;
+      });
   }
 
-  public nameChanged(): void {
-    this.clearError('name');
+  private resetForm(): void {
+    this.resetErrors();
+    this.name = '';
+    this.phone = '';
+    this.email = '';
+    this.message = '';
   }
 
-  public phoneChanged(): void {
-    this.clearError('phone');
-  }
-
-  public emailChanged(): void {
-    this.clearError('email');
-  }
-
-  public messageChanged(): void {
-    this.clearError('message');
+  public cancel(): void {
+    this.dialogController.cancel();
   }
 }

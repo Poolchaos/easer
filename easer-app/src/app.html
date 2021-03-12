@@ -32,7 +32,7 @@
             <button class="pad-10" click.trigger="navigate('Recommendations')"><b>Recommendations</b></button>
           </div>
           <div style="margin-top: 20px;">
-            <button class="large-font white red-text pad-20 rounded-5">Get a <b>FREE</b> Quote</button>
+            <button class="large-font white red-text pad-20 rounded-5" click.trigger="getQuote()">Get a <b>FREE</b> Quote</button>
           </div>
         </div>
       </div>
@@ -266,7 +266,10 @@
             </div>
 
             <div class="centered">
-              <button class="large-font white red-text pad-20 rounded-5" click.trigger="sendMessage()"><b>Sub</b>mit</button>
+              <button disabled.bind="submitted" class="large-font white red-text pad-20 rounded-5" click.trigger="sendMessage()">
+                <span class.bind="submitted ? 'gray-text' : ''"><b>Sub</b>mit</span>
+                <i class="fas fa-spinner rotating" if.bind="submitted"></i>
+              </button>
             </div>
 
           </div>
@@ -285,6 +288,10 @@
                 <span class="small-font">Having <b class="medium-font red-text">troubles</b>?</span>
                 <span class="white-border small-font pad-10 mar--t-10 rounded-2">support@flaapworks.co.za</span>
             </div>
+          </div>
+          <div class="red-text white pad-10 w--full" if.bind="sent">
+            <div>Your message has been sent.</div>
+            We will be in contact with you shortly
           </div>
         </div>
 

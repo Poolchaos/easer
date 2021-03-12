@@ -9,6 +9,11 @@ export function configure(aurelia: Aurelia): void {
   aurelia.use
     .standardConfiguration()
     .plugin(PLATFORM.moduleName('aurelia-validation'))
+    .plugin(PLATFORM.moduleName('aurelia-dialog'), config => {
+      config.useDefaults();
+      config.settings.ignoreTransitions = true;
+      config.settings.startingZIndex = 9999;
+    })
     .plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
 
       let aliases = ['t', 'i18n'];

@@ -9,8 +9,14 @@ export class AppService {
 
   constructor(private httpClient: HttpClient) {}
 
-  public sendContactEmail(name: string, phone: string, email: string, message: string): void {
-    this.httpClient
+  public sendContactEmail(
+    name: string,
+    phone: string,
+    email: string,
+    message: string,
+    service?: string
+  ): Promise<any> {
+    return this.httpClient
       .createRequest('https://api.emailjs.com/api/v1.0/email/send')
       .asPost()
       .withContent({
@@ -21,7 +27,8 @@ export class AppService {
           name,
           phone,
           email,
-          message
+          message,
+          service
         }
       })
       .withHeader('Content-Type', 'application/json')

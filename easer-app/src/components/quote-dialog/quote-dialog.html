@@ -1,0 +1,71 @@
+<template>
+  <div class="dialog">
+    <div class="dialog--header flex flex--cols flex--between pad-20">
+      <span class="large-font red-text">Get a <b>FREE</b> Quote</span>
+      <button class="hoverable" click.trigger="cancel()">x</button>
+    </div>
+
+    <div class="dialog--content gray flex flex--rows flex--around">
+      <div class="flex relative mar-5-20 error-wrap">
+        <div class="error error--top error--right rounded-2"
+          if.bind="errors.name">${errors.name}</div>
+        <input type="text"
+          placeholder="* Enter Your Name"
+          value.bind="name & validate"
+          class="small-font flex--fill gray white-text white-border"
+          class.bind="name.length ? 'hasValue' : 'empty'" />
+      </div>
+      <div class="flex relative mar-5-20 error-wrap">
+        <div class="error error--top error--right rounded-2"
+          if.bind="errors.phone">${errors.phone}</div>
+        <input type="text"
+          placeholder="*  Number"
+          value.bind="phone & validate"
+          class="small-font flex--fill"
+          class.bind="phone.length ? 'hasValue' : 'empty'" />
+      </div>
+      <div class="flex relative mar-5-20 error-wrap">
+        <div class="error error--top error--right rounded-2"
+          if.bind="errors.email">${errors.email}</div>
+        <input type="text"
+          placeholder="* Email"
+          value.bind="email & validate"
+          class="small-font flex--fill"
+          class.bind="email.length ? 'hasValue' : 'empty'" />
+      </div>
+      <div class="flex relative mar-5-20">
+        <select value.bind="service" class.bind="service ? 'hasValue' : ''">
+          <option model.bind="null">Choose...</option>
+          <option model='Website'>Website</option>
+          <option model='Website'>Website</option>
+          <option model="Web Application">Web Application</option>
+          <option model="Brochure Site">Brochure Site</option>
+          <option model="E-Commerce">E-Commerce</option>
+          <option model="SEO">SEO</option>
+          <option model="Consulting">Consulting</option>
+        </select>
+      </div>
+      <div class="flex relative mar-5-20 error-wrap">
+        <div class="error error--top error--right rounded-2"
+          if.bind="errors.message">${errors.message}</div>
+        <textarea type="text"
+          rows="5"
+          class="small-font flex--fill"
+          placeholder="* Add some notes or context"
+          value.bind="message & validate"
+          class.bind="message.length ? 'hasValue' : 'empty'"></textarea>
+      </div>
+
+    </div>
+
+    <div class="dialog--footer pad-20">
+      <div style="display: flex;justify-content: center;">
+        <button class="pad-10 opac gray-text hoverable" click.trigger="cancel()"><b>Cancel</b></button>
+        <button disabled.bind="submitted" class="red white-text small-font pad-10 hoverable" click.trigger="sendQuoteRequest()">
+          <span class.bind="submitted ? 'gray-text' : ''"><b>Confirm</b></span>
+          <i class="fas fa-spinner rotating" if.bind="submitted"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
