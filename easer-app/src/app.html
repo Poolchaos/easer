@@ -10,7 +10,7 @@
           <img src.bind="'ampler 1800x1800.png'" style="width: 50px;" />
           <span style="align-self:center;">Flaapworks</span>
         </div>
-        <language-selector></language-selector>
+        <!-- <language-selector></language-selector> -->
       </div>
       <notifications></notifications>
     </div>
@@ -43,10 +43,12 @@
           <div class="table--col">
             <div class="table--col-descriptor">
               <img src.bind="'random-1.png'" />
-              <div class="flex flex--rows">
+
+              <!-- <div class="flex flex--rows"> -->
                 <span class="medium-font">Website</span>
-                <button class="white red-text small-font pad-10" click.trigger="getQuote('Services')"><b>Services</b></button>
-              </div>
+                <!-- <button class="white red-text small-font pad-10" click.trigger="getQuote('Services')"><b>Services</b></button>
+              </div> -->
+              
             </div>
             <div class="text">
               Let us work to build you the perfect website.
@@ -105,11 +107,14 @@
       <div id="Explore"
         class="page--content-step">
         <div class="skills">
-          <img 
+          <a 
             repeat.for="skill of skillList"
-            src.bind="skill.img"
-            alt.bind="skill.label"
-            title.bind="skill.label" />
+            href.bind="skill.link" target="_blank">
+            <img 
+              src.bind="skill.img"
+              alt.bind="skill.label"
+              title.bind="skill.label" />
+          </a>
         </div>
       </div>
     
@@ -206,7 +211,6 @@
                   Phillip is by far the most friendly and patient guy I have ever had the pleasure of working with. He's a gifted teacher and I'm grateful 
                   for the time I spent learning from him. He works incredibly hard and you always get the sense that he's a master of his craft because he 
                   enjoys it so much.
-
                 </a>
                 <span class="large-font">&rdquo;</span>
               </span>
