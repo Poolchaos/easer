@@ -2,11 +2,8 @@
   <div class="pager">
     <div class="pager--labels">
       <li repeat.for="step of pager.steps"
-        class="
-          ${step.active ? 'active': step.active === false ? 'inactive' : ''}
-          ${step.enabled ? 'enabled': ''}
-        ">
-        <img src.bind="step.arrowImg" if.bind="$index!==0" />
+        class="active">
+        <img src.bind="'images/' + step.arrowImg" width="40px" height="70px" if.bind="$index!==0" />
         <div class="label" click.trigger="navTo(step)">
           ${step.label}
           <div class="indicator"></div>

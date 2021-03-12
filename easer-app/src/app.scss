@@ -17,17 +17,12 @@
   --width: calc(100% - var(--spacer));
   --left: calc(var(--spacer) - 100%);
 
-  @media screen and (min-width: 1050px) {
-    height: 6500px;
-  }
+  // @media screen and (min-width: 1050px) {
+  //   height: 6500px;
+  // }
 
   @media screen and (max-width: 1049px) {
-    height: auto;
     width: 100%;
-
-    .page--content-step {
-      margin-bottom: 20px;
-    }
   }
 
   &--header {
@@ -62,7 +57,7 @@
       width: calc(100% - var(--spacer) * 2)!important;
       max-width: 900px;
       min-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 20px auto;
 
       &:nth-child(4), &:nth-child(3) {
         height: auto!important;

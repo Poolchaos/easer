@@ -5,7 +5,7 @@ export const SKILLS = [
   { img: 'css3.webp', label: 'CSS3', link: 'https://en.wikipedia.org/wiki/CSS' },
   { img: 'docker.png', label: 'Docker', link: 'https://www.docker.com/' },
   { img: 'electron.png', label: 'Electron', link: 'https://www.electronjs.org/' },
-  { img: 'expressjs.svg', label: 'ExpressJS', link: 'https://expressjs.com/' },
+  { img: 'expressjs.png', label: 'ExpressJS', link: 'https://expressjs.com/' },
   { img: 'git.png', label: 'Git', link: 'https://git-scm.com/' },
   { img: 'gulp.png', label: 'Gulp', link: 'https://gulpjs.com/' },
   { img: 'html5.png', label: 'HTML5', link: 'https://en.wikipedia.org/wiki/HTML5' },

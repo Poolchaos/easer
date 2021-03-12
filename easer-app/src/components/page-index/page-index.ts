@@ -56,36 +56,36 @@ export class PageIndex {
     const device = deviceDetector.parse(navigator.userAgent);
     console.log(' ::>> device >>>>>> ', device);
 
-    if (
-      device.device.type === 'smartphone' ||
-      device.device.type === 'tablet'
-    ) {
-      console.log(' ::>> ignore scroll detection ');
-      return;
-    }
+  //   if (
+  //     device.device.type === 'smartphone' ||
+  //     device.device.type === 'tablet'
+  //   ) {
+  //     console.log(' ::>> ignore scroll detection ');
+  //     return;
+  //   }
 
-    let easerObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 0));
-    easerObserver.observe(document.querySelector('#Flaapworks'));
+  //   let easerObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 0));
+  //   easerObserver.observe(document.querySelector('#Flaapworks'));
     
-    let appObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 1));
-    appObserver.observe(document.querySelector('#Services'));
+  //   let appObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 1));
+  //   appObserver.observe(document.querySelector('#Services'));
     
-    let compObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 2));
-    compObserver.observe(document.querySelector('#Explore'));
+  //   let compObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 2));
+  //   compObserver.observe(document.querySelector('#Explore'));
     
-    let aboutObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 3));
-    aboutObserver.observe(document.querySelector('#Recommendations'));
+  //   let aboutObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 3));
+  //   aboutObserver.observe(document.querySelector('#Recommendations'));
     
-    let contactObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 4));
-    contactObserver.observe(document.querySelector('#GetInTouch'));
+  //   let contactObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 4));
+  //   contactObserver.observe(document.querySelector('#GetInTouch'));
   }
 
-  private handleIntersect(entries: IntersectionObserverEntry[], step: number): void {
-    const entry = entries[0];
-    if (!this.ignoreScroll && entry.isIntersecting) {
-      this.navTo(this.pager.steps[step], true);
-    }
-  }
+  // private handleIntersect(entries: IntersectionObserverEntry[], step: number): void {
+  //   const entry = entries[0];
+  //   if (!this.ignoreScroll && entry.isIntersecting) {
+  //     this.navTo(this.pager.steps[step], true);
+  //   }
+  // }
 
   public navTo(step: any, ignoreTimeout?: boolean): void {
 
