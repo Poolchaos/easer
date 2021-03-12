@@ -3,7 +3,8 @@
     <div class="pager--labels">
       <li repeat.for="step of pager.steps"
         class="active">
-        <img src.bind="'images/' + step.arrowImg" width="40px" height="70px" if.bind="$index!==0" />
+        <!-- <img src.bind="'images/' + step.arrowImg" width="40px" height="70px" if.bind="$index!==0" /> -->
+        <div class="image image-${$index}" if.bind="$index!==0"></div>
         <div class="label" click.trigger="navTo(step)">
           ${step.label}
           <div class="indicator"></div>

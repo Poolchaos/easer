@@ -15,49 +15,32 @@
     flex-direction: column;
     align-content: space-around;
 
-    img {
-      height: 0;
-      opacity: 0;
+    .image {
+      width: 40px;
+      min-width: 40px;
+      height: 70px;
+      overflow: hidden;
       margin: 10px;
+      background-image: url('../../../static/images/sprites.png');
+
+      &-1 {
+        background-position: 50px 124px;
+      }
+      &-2 {
+        background-position: 110px 124px;
+      }
+      &-3 {
+        background-position: 170px 124px;
+      }
+      &-4 {
+        background-position: 230px 124px;
+      }
     }
     
     .label {
       position: relative;
       cursor: pointer;
       padding: 0 10px 10px 0;
-    }
-    
-    li {
-
-      &:hover {
-        // todo: maybe add something nice here
-      }
-
-      &.active {
-        img {
-          animation: grow ease 0.5s;
-          -webkit-animation: grow ease 0.5s;
-          -moz-animation: grow ease 0.5s;
-          -o-animation: grow ease 0.5s;
-          -ms-animation: grow ease 0.5s;
-
-          height: 70px;
-          opacity: 1!important;
-        }
-      }
-      
-      &.inactive {
-        img {
-          animation: shrink ease 0.5s;
-          -webkit-animation: shrink ease 0.5s;
-          -moz-animation: shrink ease 0.5s;
-          -o-animation: shrink ease 0.5s;
-          -ms-animation: shrink ease 0.5s;
-
-          height: 0;
-          opacity: 0!important;
-        }
-      }
     }
   }
 }
