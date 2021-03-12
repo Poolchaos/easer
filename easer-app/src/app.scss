@@ -1,6 +1,16 @@
 @import './_common/styles/animations/slide-animate.scss';
 @import './_common/styles/animations/rotate-animate.scss';
 
+.puzzle--piece {
+  @media screen and (min-width: 1050px) {
+    display: block;
+  }
+
+  @media screen and (max-width: 1049px) {
+    display: none;
+  }
+}
+
 .page {
   // full width - page-index (right (100px) + width (105px) + left margin (50px))
   --spacer: 255px;
@@ -12,15 +22,6 @@
   }
 
   @media screen and (max-width: 1049px) {
-    height: auto;
-    width: 100%;
-
-    .page--content-step {
-      margin-bottom: 20px;
-    }
-  }
-  
-  @media screen and (max-width: 600px) {
     height: auto;
     width: 100%;
 
