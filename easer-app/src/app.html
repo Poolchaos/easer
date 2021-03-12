@@ -110,12 +110,13 @@ d
           <a 
             repeat.for="skill of skillList"
             href.bind="skill.link" target="_blank">
-            <img
+            <!-- <img
               height="100px"
               width="100px"
               src.bind="'images/' + skill.img"
               alt.bind="skill.label"
-              title.bind="skill.label" />
+              title.bind="skill.label" /> -->
+            <div class="image image-${skill.name}"></div>
           </a>
         </div>
       </div>

@@ -77,9 +77,92 @@
       max-height: 637px;
       overflow-y: auto;
 
-      img {
+      .image {
+        width: 100px;
         height: 100px;
         margin: 30px;
+        overflow: hidden;
+        background-image: url('../static/images/skill_sprites.png');
+
+        // row 1 sprite
+        &-aurelia {
+          background-position: -131px -10px;
+        }
+        &-angular {
+          background-position: -10px -10px;
+        }
+        &-aws {
+          background-position: -10px -131px;
+        }
+        &-css3 {
+          background-position: -131px -131px;
+        }
+
+        // row 2 sprite
+        &-docker {
+          background-position: -250px -10px;
+        }
+        &-electron {
+          background-position: -250px -131px;
+        }
+        &-expressjs {
+          background-position: -10px -250px;
+        }
+        &-git {
+          background-position: -131px -250px;
+        }
+
+        &-gulp {
+          background-position: -250px -250px;
+        }
+        &-html5 {
+          background-position: 230px -10px;
+        }
+        &-javascript {
+          background-position: 230px -131px;
+        }
+        &-jenkins {
+          background-position: 230px -250px;
+        }
+        &-jwt {
+          background-position: -10px 230px;
+        }
+        &-kubernetes {
+          background-position: -131px 230px;
+        }
+        &-mongodb {
+          background-position: -250px 230px;
+        }
+        &-nodejs {
+          background-position: 230px 230px;
+        }
+        &-rabbitmq {
+          background-position: 110px -10px;
+        }
+        &-react {
+          background-position: 110px -131px;
+        }
+        &-redux {
+          background-position: 110px -250px;
+        }
+        &-rxjs {
+          background-position: 110px 230px;
+        }
+        &-typescript {
+          background-position: -10px 110px;
+        }
+        &-vue-js {
+          background-position: -131px 110px;
+        }
+        &-webpack {
+          background-position: -250px 110px;
+        }
+        &-webrtc {
+          background-position: 230px 110px;
+        }
+        &-wordpress {
+          background-position: 110px 110px;
+        }
       }
     }
   }
