@@ -46,6 +46,14 @@
     height: 100%;
     margin-top: 150px;
 
+    @media screen and (max-width: 750px) {
+      margin-top: 60px;
+      
+      &-step {
+        min-width: 100%!important;
+      }
+    }
+
     &-step {
 
       position: relative;
@@ -55,10 +63,6 @@
       max-width: 900px;
       min-width: 600px;
       margin: 0 auto 20px auto;
-
-      @media screen and (max-width: 750px) {
-        min-width: 100%;
-      }
 
       &:nth-child(4), &:nth-child(3) {
         height: auto!important;
@@ -85,7 +89,6 @@
     width: calc(100% - 40px);
     min-width: calc(600px - 40px);
     padding: 20px;
-    margin-top: 50px;
     background: var(--blue);
 
     @media screen and (max-width: 750px) {
@@ -133,7 +136,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    height: 100%;
+    height: calc(100% - 20px);
     max-height: 800px;
     overflow-y: auto;
 
@@ -141,10 +144,14 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      height: 33%;
       width: 45%;
       text-align: center;
       padding: 0 10px;
+      
+      @media screen and (max-width: 750px) {
+        padding: 10px;
+        width: calc(100% - 20px);
+      }
 
       .text {
         text-align: justify;
@@ -165,7 +172,7 @@
             margin: auto;
           }
           span {
-            margin: 0;
+            margin: 0 0 10px 0;
           }
         }
       }
@@ -205,8 +212,26 @@
     align-items: stretch;
     margin-top: 50px;
 
+    .minimised-header {
+      display: none;
+      margin-bottom: 20px!important;
+    }
+
     > div {
       width: 50%;
+    }
+
+    @media screen and (max-width: 750px) {
+      flex-direction: column-reverse;
+
+      > div {
+        width: calc(100% - 20px);
+        margin: 0 10px 20px;
+      }
+
+      .minimised-header {
+        display: block;
+      }
     }
 
     .left {

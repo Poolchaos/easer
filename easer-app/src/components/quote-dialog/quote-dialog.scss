@@ -6,8 +6,15 @@ ux-dialog-container {
   background: var(--light--primary);
   color: var(--light--primary-text);
   max-width: 600px;
-  min-width: 400px;
   min-height: 500px;
+  
+  @media screen and (max-width: 750px) {
+    width: 100%;
+    &--content {
+      width: 100%!important;
+      padding: 0!important;
+    }
+  }
   
   &--header {
 

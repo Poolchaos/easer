@@ -160,6 +160,11 @@ input:focus, textarea:focus, select:focus, button:focus {
       padding-right: 10px;
     }
   }
+  &--t {
+    &-20 {
+      padding-top: 20px!important;
+    }
+  }
 
   &-10 {
     padding: 10px!important;
@@ -179,7 +184,7 @@ input:focus, textarea:focus, select:focus, button:focus {
       margin-top: 10px;
     }
     &-20 {
-      margin-top: 20px;
+      margin-top: 20px!important;
     }
   }
   &--b { // bottom
