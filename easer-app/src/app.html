@@ -1,7 +1,7 @@
 <template>
   <page-index active.two-way="active"></page-index>
-  <img class="puzzle--piece" width="400px" height="268px" src.bind="'images/puzzle-piece-1.png'" style="position: fixed;top: 100px;left: 50px; opacity: 0.1;z-index: -1;" />
-  <img class="puzzle--piece" width="400px" height="268px" src.bind="'images/puzzle-piece-2.png'" style="position: fixed;bottom: 50px;right: 50px; opacity: 0.1;z-index: -1;" />
+  <div class="puzzle--piece puzzle--piece-left"></div>
+  <div class="puzzle--piece puzzle--piece-right"></div>
 d
   <div class="page">
     <div class="page--header">
@@ -20,9 +20,7 @@ d
       <div id="Flaapworks"
         class="page--content-step"
         style="display: flex;flex-direction: column;justify-content: center;text-align: center;">
-        <!-- <h1 i18n="title"></h1> -->
-        
-        <img class="puzzle--piece" src.bind="'images/puzzle-piece-3.png'" width="150px" height="91px" style="position: absolute;top: 20px;right: 50px; opacity: 0.1;" />
+
         <img src.bind="'images/ampler-red.png'" width="150px" height="150px" style="margin: 0 auto;" />
         <h1>Fast and Responsive Web Services</h1>
         <h3>If you have the vision, we can help you reach it.</h3>
@@ -42,13 +40,11 @@ d
         <div class="table">
           <div class="table--col">
             <div class="table--col-descriptor">
-              <img width="150px" height="114px" src.bind="'images/random-1.png'" />
-
+              <div class="image image-1"></div>
               <!-- <div class="flex flex--rows"> -->
                 <span class="medium-font">Website</span>
                 <!-- <button class="white red-text small-font pad-10" click.trigger="getQuote('Services')"><b>Services</b></button>
               </div> -->
-              
             </div>
             <div class="text">
               Let us work to build you the perfect website.
@@ -58,7 +54,7 @@ d
           </div>
           <div class="table--col">
             <div class="table--col-descriptor">
-              <img width="150px" height="114px" src.bind="'images/random-2.png'" />
+              <div class="image image-2"></div>
               <span class="medium-font">Web Application</span>
             </div>
             <div class="text">
@@ -67,7 +63,7 @@ d
           </div>
           <div class="table--col">
             <div class="table--col-descriptor">
-              <img width="150px" height="114px" src.bind="'images/random-3.png'" />
+              <div class="image image-3"></div>
               <span class="medium-font">Brochure Sites</span>
             </div>
             <div class="text">
@@ -76,7 +72,7 @@ d
           </div>
           <div class="table--col">
             <div class="table--col-descriptor">
-              <img width="150px" height="114px" src.bind="'images/random-4.png'" />
+              <div class="image image-4"></div>
               <span class="medium-font">E-Commerce</span>
             </div>
             <div class="text">
@@ -85,7 +81,7 @@ d
           </div>
           <div class="table--col">
             <div class="table--col-descriptor">
-              <img width="150px" height="114px" src.bind="'images/random-5.png'" />
+              <div class="image image-5"></div>
               <span class="medium-font">SEO</span>
             </div>
             <div class="text">
@@ -94,7 +90,7 @@ d
           </div>
           <div class="table--col">
             <div class="table--col-descriptor">
-              <img width="150px" height="114px" src.bind="'images/random-6.png'" />
+              <div class="image image-6"></div>
               <span class="medium-font">Consulting</span>
             </div>
             <div class="text">
