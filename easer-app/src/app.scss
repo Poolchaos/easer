@@ -14,11 +14,19 @@
   @media screen and (max-width: 1049px) {
     height: auto;
     width: 100%;
+
+    .page--content-step {
+      margin-bottom: 20px;
+    }
   }
   
   @media screen and (max-width: 600px) {
     height: auto;
     width: 100%;
+
+    .page--content-step {
+      margin-bottom: 20px;
+    }
   }
 
   &--header {

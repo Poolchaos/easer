@@ -1,6 +1,8 @@
 import { customElement, autoinject, bindable } from 'aurelia-framework';
 import { EventAggregator } from 'aurelia-event-aggregator';
 
+import * as DeviceDetector from "device-detector-js";
+
 import './page-index.scss';
 
 class Pager {;
@@ -50,6 +52,17 @@ export class PageIndex {
   }
 
   public attached(): void {
+    const deviceDetector = new DeviceDetector();
+    const device = deviceDetector.parse(navigator.userAgent);
+    console.log(' ::>> device >>>>>> ', device);
+
+    if (
+      device.device.type === 'smartphone' ||
+      device.device.type === 'tablet'
+    ) {
+      console.log(' ::>> ignore scroll detection ');
+      return;
+    }
 
     let easerObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 0));
     easerObserver.observe(document.querySelector('#Flaapworks'));
