@@ -38,7 +38,6 @@ export class App {
 
   public activate(): void {
     this.setupValidations();
-    // https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,picture-url,industry,positions:(id,title,summary,start-date,end-date,is-current,company:(id,name,type,size,industry,ticker)),educations:(id,school-name,field-of-study,start-date,end-date,degree,activities,notes)),num-results)?first-name=parameter&last-name=parameter
   }
 
   private setupValidations(): void {

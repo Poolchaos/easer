@@ -29,5 +29,5 @@ export class AppService {
       .catch(e => {
         console.error(' ::>> failed to send email ', e);
       });
-    }
+  }
 }
