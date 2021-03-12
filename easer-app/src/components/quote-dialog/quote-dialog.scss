@@ -5,7 +5,8 @@ ux-dialog-container {
 .dialog {
   background: var(--light--primary);
   color: var(--light--primary-text);
-  width: 600px;
+  max-width: 600px;
+  min-width: 400px;
   min-height: 500px;
   
   &--header {

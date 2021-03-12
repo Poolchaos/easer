@@ -2,6 +2,7 @@ import 'includes';
 import 'app.scss';
 
 import { autoinject, observable } from 'aurelia-framework';
+import { PLATFORM } from 'aurelia-pal';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { DialogService } from 'aurelia-dialog';
 import {
@@ -14,7 +15,6 @@ import {
 
 import { AppService } from './app-service';
 import { SKILLS } from '_common/constants/skills';
-import { QuoteDialog } from 'components/quote-dialog/quote-dialog';
 
 @autoinject()
 export class App {
@@ -110,7 +110,7 @@ export class App {
     console.log(' get a quote for ', service);
     // todo: implement this
     this.dialogService
-      .open({ viewModel: QuoteDialog, model: {} })
+      .open({ viewModel: PLATFORM.moduleName('components/quote-dialog/quote-dialog'), model: {} })
       .then(dialog => {
         if (dialog.wasCancelled) {
           return;
