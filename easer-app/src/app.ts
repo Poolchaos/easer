@@ -2,6 +2,8 @@ import 'includes';
 import 'app.scss';
 
 import { autoinject, observable } from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
+
 import {
   ValidationControllerFactory,
   ValidationController,
@@ -27,6 +29,7 @@ export class App {
 
   constructor(
     private appService: AppService,
+    private eventAggregator: EventAggregator,
     validationControllerFactory: ValidationControllerFactory
   ) {
     this.validation = validationControllerFactory.createForCurrentScope();
@@ -35,6 +38,7 @@ export class App {
 
   public activate(): void {
     this.setupValidations();
+    // https://api.linkedin.com/v1/people-search:(people:(id,first-name,last-name,headline,picture-url,industry,positions:(id,title,summary,start-date,end-date,is-current,company:(id,name,type,size,industry,ticker)),educations:(id,school-name,field-of-study,start-date,end-date,degree,activities,notes)),num-results)?first-name=parameter&last-name=parameter
   }
 
   private setupValidations(): void {
@@ -89,8 +93,10 @@ export class App {
   }
 
   public navigate(id: string): void {
-    let element = document.querySelector(`#${id}`);
-    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // let element = document.querySelector(`#${id}`);
+    // element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    this.eventAggregator.publish('INDEX:SELECT', id);
   }
 
   public sendMessage(): void {

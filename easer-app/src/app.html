@@ -29,7 +29,7 @@
         <div>
           <div style="display: flex;justify-content: center;">
             <button class="white red-text small-font pad-10" click.trigger="navigate('Services')"><b>Services</b></button>
-            <button class="pad-10"><b>About</b></button>
+            <button class="pad-10" click.trigger="navigate('About')"><b>About</b></button>
           </div>
           <div style="margin-top: 20px;">
             <button class="large-font white red-text pad-20 rounded-5">Get a <b>FREE</b> Quote</button>
@@ -95,8 +95,8 @@
             </div>
           </div>
         </div>
-
       </div>
+
       <div id="Explore"
         class="page--content-step">
         <div class="skills">
@@ -107,6 +107,12 @@
             title.bind="skill.label" />
         </div>
       </div>
+    
+      <div id="About"
+      class="page--content-step">
+        <h1 style="text-align: center;">About</h1>
+      </div>
+
       <div id="GetInTouch"
         class="page--content-step">
         <h1 style="text-align: center;">Get In Touch</h1>

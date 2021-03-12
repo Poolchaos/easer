@@ -1,5 +1,5 @@
-import { customElement, bindable } from 'aurelia-framework';
-import {bindingMode} from 'aurelia-binding';
+import { customElement, autoinject, bindable } from 'aurelia-framework';
+import { EventAggregator } from 'aurelia-event-aggregator';
 
 import './page-index.scss';
 
@@ -9,7 +9,8 @@ class Pager {;
     { id: 'Flaapworks', label: 'Flaapworks', active: null, enabled: true, activeSteps: ['Flaapworks'] },
     { id: 'Services', label: 'Services', active: null, enabled: false, arrowImg: 'curly-dotted-arrow.png', activeSteps: ['Flaapworks', 'Services'] },
     { id: 'Explore', label: 'Explore', active: null, enabled: false, arrowImg: 'curved-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Services', 'Explore'] },
-    { id: 'GetInTouch', label: 'Get In Touch', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Services', 'Explore', 'GetInTouch'] }
+    { id: 'About', label: 'About', active: null, enabled: false, arrowImg: 'up-broken-line-arrow.png', activeSteps: ['Flaapworks', 'Services', 'Explore', 'About'] },
+    { id: 'GetInTouch', label: 'Get In Touch', active: null, enabled: false, arrowImg: 'rotated-right-arrow-with-broken-line.png', activeSteps: ['Flaapworks', 'Services', 'Explore', 'About', 'GetInTouch'] }
   ];
 
   public go(action: { id: string, activeSteps: string[] }): void {
@@ -26,6 +27,7 @@ class Pager {;
   }
 }
 
+@autoinject()
 @customElement('page-index')
 export class PageIndex {
 
@@ -36,11 +38,15 @@ export class PageIndex {
   private timeout = null;
   private ignoreScroll: boolean = false;
 
-  constructor() {
-    console.log(' ::>> navigate now ');
-    setTimeout(() => {
-      // this.navTo(this.pager.steps[1]);
-    }, 1000)
+  constructor(private eventAggregator: EventAggregator) {}
+
+  public bind(): void {
+    this.eventAggregator.subscribe('INDEX:SELECT', (id: string) => {
+      let step = this.pager.steps.find(step => step.id === id);
+      if (step) {
+        this.navTo(step);
+      }
+    });
   }
 
   public attached(): void {
@@ -54,11 +60,14 @@ export class PageIndex {
     let compObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 2));
     compObserver.observe(document.querySelector('#Explore'));
     
-    let contactObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 3));
+    let aboutObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 3));
+    aboutObserver.observe(document.querySelector('#About'));
+    
+    let contactObserver = new IntersectionObserver((entries) => this.handleIntersect(entries, 4));
     contactObserver.observe(document.querySelector('#GetInTouch'));
   }
 
-  private handleIntersect(entries, step: number): void {
+  private handleIntersect(entries: IntersectionObserverEntry[], step: number): void {
     const entry = entries[0];
     if (!this.ignoreScroll && entry.isIntersecting) {
       this.navTo(this.pager.steps[step], true);
