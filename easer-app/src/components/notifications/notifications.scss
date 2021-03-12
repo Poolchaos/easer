@@ -2,7 +2,8 @@
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  width: calc(100% - 40px);
+  min-width: calc(600px - 40px);
   background: var(--default--primary-text);
 
   .item {

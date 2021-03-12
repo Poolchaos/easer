@@ -14,27 +14,27 @@ export function configure(aurelia: Aurelia): void {
       config.settings.ignoreTransitions = true;
       config.settings.startingZIndex = 9999;
     })
-    .plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
+    // .plugin(PLATFORM.moduleName('aurelia-i18n'), (instance) => {
 
-      let aliases = ['t', 'i18n'];
-      TCustomAttribute.configureAliases(aliases);
-      instance.i18next.use(Backend);
+    //   let aliases = ['t', 'i18n'];
+    //   TCustomAttribute.configureAliases(aliases);
+    //   instance.i18next.use(Backend);
 
-      return instance.setup({
-        fallbackLng: 'en',
-        whitelist: ['en', 'af'],
-        preload: ['en', 'af'],
-        ns: 'global',
-        defaultNS: 'global',
-        fallbackNS: false,
-        attributes: aliases,
-        lng: 'en',
-        debug: false,
-        backend: {                                  
-          loadPath: './locales/{{lng}}/{{ns}}.json'
-        }
-      })
-    })
+    //   return instance.setup({
+    //     fallbackLng: 'en',
+    //     whitelist: ['en', 'af'],
+    //     preload: ['en', 'af'],
+    //     ns: 'global',
+    //     defaultNS: 'global',
+    //     fallbackNS: false,
+    //     attributes: aliases,
+    //     lng: 'en',
+    //     debug: false,
+    //     backend: {                                  
+    //       loadPath: './locales/{{lng}}/{{ns}}.json'
+    //     }
+    //   })
+    // })
     .feature(PLATFORM.moduleName('components/index'));
 
   aurelia.use.developmentLogging(environment.debug ? 'debug' : 'warn');
