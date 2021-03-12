@@ -307,10 +307,28 @@
 }
 
 #Recommendations {
-  .profile {
+  .image {
+    width: 80px;
+    min-width: 80px;
     height: 80px;
     border-radius: 100%;
+    overflow: hidden;
+    background-image: url('../static/images/sprites.png');
+
+    &-1 {
+      background-position: -315px -455px;
+    }
+    &-2 {
+      background-position: -550px -455px;
+    }
+    &-3 {
+      background-position: -430px -455px;
+    }
+    &-4 {
+      background-position: -190px -455px;
+    }
   }
+
   .description {
     min-width: 180px;
   }
