@@ -8,7 +8,7 @@
   display: block;
   width: 426px;
   height: 286px;
-  background-image: url('../static/images/sprites.png');
+  background-image: url('../static/images/sprites.webp');
 
   &-left {
     top: 100px;
@@ -98,7 +98,7 @@
         height: 100px;
         margin: 30px;
         overflow: hidden;
-        background-image: url('../static/images/skill_sprites.png');
+        background-image: url('../static/images/skill_sprites.webp');
 
         // row 1 sprite
         &-aurelia {
@@ -264,7 +264,7 @@
           width: 150px;
           height: 114px;
           overflow: hidden;
-          background-image: url('../static/images/sprites.png');
+          background-image: url('../static/images/sprites.webp');
 
           &-1 {
             background-position: -10px -315px;
@@ -313,7 +313,7 @@
     height: 80px;
     border-radius: 100%;
     overflow: hidden;
-    background-image: url('../static/images/sprites.png');
+    background-image: url('../static/images/sprites.webp');
 
     &-1 {
       background-position: -315px -455px;

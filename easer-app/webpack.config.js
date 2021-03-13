@@ -7,6 +7,7 @@ const project = require('./aurelia_project/aurelia.json');
 const { AureliaPlugin, ModuleDependenciesPlugin } = require('aurelia-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ImageminWebpWebpackPlugin= require("imagemin-webp-webpack-plugin");
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
@@ -99,31 +100,31 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
         // },
 
         // This is the HTTP/1.1 optimized cacheGroup configuration.
-        vendors: { // picks up everything from node_modules as long as the sum of node modules is larger than minSize
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          priority: 19,
-          enforce: true, // causes maxInitialRequests to be ignored, minSize still respected if specified in cacheGroup
-          minSize: 30000 // use the default minSize
-        },
-        vendorsAsync: { // vendors async chunk, remaining asynchronously used node modules as single chunk file
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors.async',
-          chunks: 'async',
-          priority: 9,
-          reuseExistingChunk: true,
-          minSize: 10000  // use smaller minSize to avoid too much potential bundle bloat due to module duplication.
-        },
-        commonsAsync: { // commons async chunk, remaining asynchronously used modules as single chunk file
-          name: 'commons.async',
-          minChunks: 2, // Minimum number of chunks that must share a module before splitting
-          chunks: 'async',
-          priority: 0,
-          reuseExistingChunk: true,
-          minSize: 10000  // use smaller minSize to avoid too much potential bundle bloat due to module duplication.
-        }
+        // vendors: { // picks up everything from node_modules as long as the sum of node modules is larger than minSize
+        //   test: /[\\/]node_modules[\\/]/,
+        //   name: 'vendors',
+        //   priority: 19,
+        //   enforce: true, // causes maxInitialRequests to be ignored, minSize still respected if specified in cacheGroup
+        //   minSize: 30000 // use the default minSize
+        // },
+        // vendorsAsync: { // vendors async chunk, remaining asynchronously used node modules as single chunk file
+        //   test: /[\\/]node_modules[\\/]/,
+        //   name: 'vendors.async',
+        //   chunks: 'async',
+        //   priority: 9,
+        //   reuseExistingChunk: true,
+        //   minSize: 10000  // use smaller minSize to avoid too much potential bundle bloat due to module duplication.
+        // },
+        // commonsAsync: { // commons async chunk, remaining asynchronously used modules as single chunk file
+        //   name: 'commons.async',
+        //   minChunks: 2, // Minimum number of chunks that must share a module before splitting
+        //   chunks: 'async',
+        //   priority: 0,
+        //   reuseExistingChunk: true,
+        //   minSize: 10000  // use smaller minSize to avoid too much potential bundle bloat due to module duplication.
+        // }
 
-        /* This is the HTTP/2 optimized cacheGroup configuration.
+        // This is the HTTP/2 optimized cacheGroup configuration.
         // generic 'initial/sync' vendor node module splits: separates out larger modules
         vendorSplit: { // each node module as separate chunk file if module is bigger than minSize
           test: /[\\/]node_modules[\\/]/,
@@ -182,7 +183,7 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
           reuseExistingChunk: true,
           enforce: true // create chunk regardless of the size of the chunk
         }
-        */
+        
       }
     }
   },
@@ -229,7 +230,7 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
       { test: /\.html$/i, loader: 'html-loader' },
       { test: /\.ts$/, loader: "ts-loader" },
       // embed small images and fonts as Data Urls and larger ones as files:
-      { test: /\.(png|gif|jpg|cur)$/i, loader: 'url-loader', options: { limit: 8192 } },
+      { test: /\.(png|gif|jpg|cur|webp)$/i, loader: 'url-loader', options: { limit: 8192 } },
       { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff2' } },
       { test: /\.woff(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff' } },
       // load these fonts normally, as files:
@@ -276,6 +277,7 @@ module.exports = ({ production } = {}, {extractCss, analyze, tests, hmr, port, h
      * remove those before the webpack build. In that case consider disabling the plugin, and instead use something like
      * `del` (https://www.npmjs.com/package/del), or `rimraf` (https://www.npmjs.com/package/rimraf).
      */
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new ImageminWebpWebpackPlugin()
   ]
 });
